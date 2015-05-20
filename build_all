@@ -1,0 +1,11 @@
+rm -rf build
+mkdir build
+
+xcodebuild -configuration Release -sdk iphoneos -project submodules/social-ios-core/SocialiOSCore.xcodeproj -target SocialiOSCore clean build CREATING_UNIVERSAL_DIR=$PWD/build
+xcodebuild -configuration Release -sdk iphoneos -project SocialiOSProfile.xcodeproj -target SocialiOSProfile clean build CREATING_UNIVERSAL_DIR=$PWD/build
+
+mkdir -p build/social-ios-profile-facebook
+xcodebuild -configuration Release -sdk iphoneos -project social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook.xcodeproj -target SocialiOSProfileFacebook clean build CREATING_UNIVERSAL_DIR=$PWD/build/social-ios-profile-facebook
+
+mkdir -p build/social-ios-profile-google
+xcodebuild -configuration Release -sdk iphoneos -project social-providers/social-ios-profile-google/SocialiOSProfileGoogle.xcodeproj -target SocialiOSProfileGoogle clean build CREATING_UNIVERSAL_DIR=$PWD/build/social-ios-profile-google

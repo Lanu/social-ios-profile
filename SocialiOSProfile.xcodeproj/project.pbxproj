@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A93B0501B0C92F800AA53DD /* SocialProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB931B0C8E30000037D6 /* SocialProfile.m */; };
+		1A93B0511B0C92F800AA53DD /* UserProfileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB7B1B0C8E30000037D6 /* UserProfileStorage.m */; };
+		1A93B0521B0C92F800AA53DD /* ProviderLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB881B0C8E30000037D6 /* ProviderLoader.m */; };
+		1A93B0531B0C92F800AA53DD /* ProviderNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB821B0C8E30000037D6 /* ProviderNotFoundException.m */; };
+		1A93B0541B0C92F800AA53DD /* ProfileEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB861B0C8E30000037D6 /* ProfileEventHandling.m */; };
+		1A93B0551B0C92F800AA53DD /* PJSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB791B0C8E30000037D6 /* PJSONConsts.m */; };
+		1A93B0561B0C92F800AA53DD /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB7F1B0C8E30000037D6 /* UserProfile.m */; };
+		1A93B0571B0C92F800AA53DD /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB8F1B0C8E30000037D6 /* SocialController.m */; };
+		1A93B0581B0C92F800AA53DD /* UserProfileNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB841B0C8E30000037D6 /* UserProfileNotFoundException.m */; };
+		1A93B0591B0C92F800AA53DD /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB761B0C8E30000037D6 /* AuthController.m */; };
+		1A93B05A1B0C92F800AA53DD /* UserProfileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB951B0C8E30000037D6 /* UserProfileUtils.m */; };
+		1A93B05B1B0C92F800AA53DD /* SocialActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB8D1B0C8E30000037D6 /* SocialActionUtils.m */; };
+		1A93B05D1B0C92F800AA53DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFD6F1B1986E173001360D9 /* UIKit.framework */; };
+		1A93B05E1B0C92F800AA53DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF356EFD193C90560081DCE0 /* Foundation.framework */; };
+		1A93B0611B0C92F800AA53DD /* ProviderNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB811B0C8E30000037D6 /* ProviderNotFoundException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B0621B0C92F800AA53DD /* ProfileEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB851B0C8E30000037D6 /* ProfileEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B0631B0C92F800AA53DD /* UserProfileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB941B0C8E30000037D6 /* UserProfileUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB781B0C8E30000037D6 /* PJSONConsts.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0651B0C92F800AA53DD /* UserProfileNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB831B0C8E30000037D6 /* UserProfileNotFoundException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B0661B0C92F800AA53DD /* UserProfileStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7A1B0C8E30000037D6 /* UserProfileStorage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0671B0C92F800AA53DD /* ISocialProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB8A1B0C8E30000037D6 /* ISocialProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0681B0C92F800AA53DD /* SocialProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB921B0C8E30000037D6 /* SocialProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B0691B0C92F800AA53DD /* IProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7D1B0C8E30000037D6 /* IProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B06B1B0C92F800AA53DD /* SocialController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB8E1B0C8E30000037D6 /* SocialController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B06C1B0C92F800AA53DD /* SocialActionUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB8C1B0C8E30000037D6 /* SocialActionUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B06D1B0C92F800AA53DD /* IAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB741B0C8E30000037D6 /* IAuthProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B06E1B0C92F800AA53DD /* UserProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7E1B0C8E30000037D6 /* UserProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB751B0C8E30000037D6 /* AuthController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0771B0C94AD00AA53DD /* SocialProfile.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1A3FBB921B0C8E30000037D6 /* SocialProfile.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A93B0711B0C92F800AA53DD /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				1A93B0771B0C94AD00AA53DD /* SocialProfile.h in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1A3FBB741B0C8E30000037D6 /* IAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAuthProvider.h; sourceTree = "<group>"; };
+		1A3FBB751B0C8E30000037D6 /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
+		1A3FBB761B0C8E30000037D6 /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
+		1A3FBB781B0C8E30000037D6 /* PJSONConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJSONConsts.h; sourceTree = "<group>"; };
+		1A3FBB791B0C8E30000037D6 /* PJSONConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJSONConsts.m; sourceTree = "<group>"; };
+		1A3FBB7A1B0C8E30000037D6 /* UserProfileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileStorage.h; sourceTree = "<group>"; };
+		1A3FBB7B1B0C8E30000037D6 /* UserProfileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileStorage.m; sourceTree = "<group>"; };
+		1A3FBB7D1B0C8E30000037D6 /* IProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProvider.h; sourceTree = "<group>"; };
+		1A3FBB7E1B0C8E30000037D6 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		1A3FBB7F1B0C8E30000037D6 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		1A3FBB811B0C8E30000037D6 /* ProviderNotFoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderNotFoundException.h; sourceTree = "<group>"; };
+		1A3FBB821B0C8E30000037D6 /* ProviderNotFoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderNotFoundException.m; sourceTree = "<group>"; };
+		1A3FBB831B0C8E30000037D6 /* UserProfileNotFoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileNotFoundException.h; sourceTree = "<group>"; };
+		1A3FBB841B0C8E30000037D6 /* UserProfileNotFoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileNotFoundException.m; sourceTree = "<group>"; };
+		1A3FBB851B0C8E30000037D6 /* ProfileEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEventHandling.h; sourceTree = "<group>"; };
+		1A3FBB861B0C8E30000037D6 /* ProfileEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEventHandling.m; sourceTree = "<group>"; };
+		1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderLoader.h; sourceTree = "<group>"; };
+		1A3FBB881B0C8E30000037D6 /* ProviderLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderLoader.m; sourceTree = "<group>"; };
+		1A3FBB8A1B0C8E30000037D6 /* ISocialProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISocialProvider.h; sourceTree = "<group>"; };
+		1A3FBB8B1B0C8E30000037D6 /* SocialCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCallbacks.h; sourceTree = "<group>"; };
+		1A3FBB8C1B0C8E30000037D6 /* SocialActionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialActionUtils.h; sourceTree = "<group>"; };
+		1A3FBB8D1B0C8E30000037D6 /* SocialActionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialActionUtils.m; sourceTree = "<group>"; };
+		1A3FBB8E1B0C8E30000037D6 /* SocialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialController.h; sourceTree = "<group>"; };
+		1A3FBB8F1B0C8E30000037D6 /* SocialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialController.m; sourceTree = "<group>"; };
+		1A3FBB901B0C8E30000037D6 /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
+		1A3FBB911B0C8E30000037D6 /* SocialiOSProfile-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocialiOSProfile-Prefix.pch"; sourceTree = "<group>"; };
+		1A3FBB921B0C8E30000037D6 /* SocialProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialProfile.h; sourceTree = "<group>"; };
+		1A3FBB931B0C8E30000037D6 /* SocialProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialProfile.m; sourceTree = "<group>"; };
+		1A3FBB941B0C8E30000037D6 /* UserProfileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileUtils.h; sourceTree = "<group>"; };
+		1A3FBB951B0C8E30000037D6 /* UserProfileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileUtils.m; sourceTree = "<group>"; };
+		1A93B0761B0C92F800AA53DD /* libSocialiOSProfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocialiOSProfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A93B0781B0C975900AA53DD /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SocialiOSProfile-Info.plist"; path = "../../../../Soom/unity3d-profile/submodules/ios-profile/SoomlaiOSProfile/SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
+		3AFD6F1B1986E173001360D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EF356EFD193C90560081DCE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EF356F0B193C90560081DCE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A93B05C1B0C92F800AA53DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A93B05D1B0C92F800AA53DD /* UIKit.framework in Frameworks */,
+				1A93B05E1B0C92F800AA53DD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A3FBB721B0C8E30000037D6 /* SocialiOSProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB731B0C8E30000037D6 /* auth */,
+				1A3FBB751B0C8E30000037D6 /* AuthController.h */,
+				1A3FBB761B0C8E30000037D6 /* AuthController.m */,
+				1A3FBB771B0C8E30000037D6 /* data */,
+				1A3FBB7C1B0C8E30000037D6 /* domain */,
+				1A3FBB801B0C8E30000037D6 /* exceptions */,
+				1A3FBB851B0C8E30000037D6 /* ProfileEventHandling.h */,
+				1A3FBB861B0C8E30000037D6 /* ProfileEventHandling.m */,
+				1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */,
+				1A3FBB881B0C8E30000037D6 /* ProviderLoader.m */,
+				1A3FBB891B0C8E30000037D6 /* social */,
+				1A3FBB8C1B0C8E30000037D6 /* SocialActionUtils.h */,
+				1A3FBB8D1B0C8E30000037D6 /* SocialActionUtils.m */,
+				1A3FBB8E1B0C8E30000037D6 /* SocialController.h */,
+				1A3FBB8F1B0C8E30000037D6 /* SocialController.m */,
+				1A3FBB901B0C8E30000037D6 /* SocialiOSProfile-Info.plist */,
+				1A93B0791B0C976000AA53DD /* Supporting Files */,
+				1A3FBB921B0C8E30000037D6 /* SocialProfile.h */,
+				1A3FBB931B0C8E30000037D6 /* SocialProfile.m */,
+				1A3FBB941B0C8E30000037D6 /* UserProfileUtils.h */,
+				1A3FBB951B0C8E30000037D6 /* UserProfileUtils.m */,
+			);
+			path = SocialiOSProfile;
+			sourceTree = SOURCE_ROOT;
+		};
+		1A3FBB731B0C8E30000037D6 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB741B0C8E30000037D6 /* IAuthProvider.h */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		1A3FBB771B0C8E30000037D6 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB781B0C8E30000037D6 /* PJSONConsts.h */,
+				1A3FBB791B0C8E30000037D6 /* PJSONConsts.m */,
+				1A3FBB7A1B0C8E30000037D6 /* UserProfileStorage.h */,
+				1A3FBB7B1B0C8E30000037D6 /* UserProfileStorage.m */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		1A3FBB7C1B0C8E30000037D6 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB7D1B0C8E30000037D6 /* IProvider.h */,
+				1A3FBB7E1B0C8E30000037D6 /* UserProfile.h */,
+				1A3FBB7F1B0C8E30000037D6 /* UserProfile.m */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		1A3FBB801B0C8E30000037D6 /* exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB811B0C8E30000037D6 /* ProviderNotFoundException.h */,
+				1A3FBB821B0C8E30000037D6 /* ProviderNotFoundException.m */,
+				1A3FBB831B0C8E30000037D6 /* UserProfileNotFoundException.h */,
+				1A3FBB841B0C8E30000037D6 /* UserProfileNotFoundException.m */,
+			);
+			path = exceptions;
+			sourceTree = "<group>";
+		};
+		1A3FBB891B0C8E30000037D6 /* social */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB8A1B0C8E30000037D6 /* ISocialProvider.h */,
+				1A3FBB8B1B0C8E30000037D6 /* SocialCallbacks.h */,
+			);
+			path = social;
+			sourceTree = "<group>";
+		};
+		1A93B0791B0C976000AA53DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB911B0C8E30000037D6 /* SocialiOSProfile-Prefix.pch */,
+				1A93B0781B0C975900AA53DD /* SocialiOSProfile-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF356EF1193C90560081DCE0 = {
+			isa = PBXGroup;
+			children = (
+				1A3FBB721B0C8E30000037D6 /* SocialiOSProfile */,
+				EF356EFC193C90560081DCE0 /* Frameworks */,
+				EF356EFB193C90560081DCE0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF356EFB193C90560081DCE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A93B0761B0C92F800AA53DD /* libSocialiOSProfile.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF356EFC193C90560081DCE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AFD6F1B1986E173001360D9 /* UIKit.framework */,
+				EF356EFD193C90560081DCE0 /* Foundation.framework */,
+				EF356F0B193C90560081DCE0 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1A93B05F1B0C92F800AA53DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A93B0681B0C92F800AA53DD /* SocialProfile.h in Headers */,
+				1A93B06E1B0C92F800AA53DD /* UserProfile.h in Headers */,
+				1A93B0621B0C92F800AA53DD /* ProfileEventHandling.h in Headers */,
+				1A93B0631B0C92F800AA53DD /* UserProfileUtils.h in Headers */,
+				1A93B0611B0C92F800AA53DD /* ProviderNotFoundException.h in Headers */,
+				1A93B0651B0C92F800AA53DD /* UserProfileNotFoundException.h in Headers */,
+				1A93B0691B0C92F800AA53DD /* IProvider.h in Headers */,
+				1A93B06D1B0C92F800AA53DD /* IAuthProvider.h in Headers */,
+				1A93B0671B0C92F800AA53DD /* ISocialProvider.h in Headers */,
+				1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */,
+				1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */,
+				1A93B06B1B0C92F800AA53DD /* SocialController.h in Headers */,
+				1A93B06C1B0C92F800AA53DD /* SocialActionUtils.h in Headers */,
+				1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */,
+				1A93B0661B0C92F800AA53DD /* UserProfileStorage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1A93B04E1B0C92F800AA53DD /* SocialiOSProfile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A93B0731B0C92F800AA53DD /* Build configuration list for PBXNativeTarget "SocialiOSProfile" */;
+			buildPhases = (
+				1A93B04F1B0C92F800AA53DD /* Sources */,
+				1A93B05C1B0C92F800AA53DD /* Frameworks */,
+				1A93B05F1B0C92F800AA53DD /* Headers */,
+				1A93B0711B0C92F800AA53DD /* Copy Files */,
+				1A93B0721B0C92F800AA53DD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocialiOSProfile;
+			productName = SoomlaiOSProfile;
+			productReference = 1A93B0761B0C92F800AA53DD /* libSocialiOSProfile.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF356EF2193C90560081DCE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Soomla;
+			};
+			buildConfigurationList = EF356EF5193C90560081DCE0 /* Build configuration list for PBXProject "SocialiOSProfile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EF356EF1193C90560081DCE0;
+			productRefGroup = EF356EFB193C90560081DCE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A93B04E1B0C92F800AA53DD /* SocialiOSProfile */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A93B0721B0C92F800AA53DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##########################################\n#\n# c.f. http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.7\n#\n# Latest Change:\n# - Supports iPhone 5 / iPod Touch 5 (uses Apple's workaround to lipo bug)\n#\n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nif [[ -z $CREATING_UNIVERSAL_DIR ]]\nthen\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\nfi\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\n# rm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir -p \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\necho '        \"$(TARGET_BUILD_DIR)/usr/local/include/\"'\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/headers/${PROJECT_NAME}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}/\"* \"${CREATING_UNIVERSAL_DIR}/headers/${PROJECT_NAME}\"\nfi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A93B04F1B0C92F800AA53DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A93B0501B0C92F800AA53DD /* SocialProfile.m in Sources */,
+				1A93B0511B0C92F800AA53DD /* UserProfileStorage.m in Sources */,
+				1A93B0521B0C92F800AA53DD /* ProviderLoader.m in Sources */,
+				1A93B0531B0C92F800AA53DD /* ProviderNotFoundException.m in Sources */,
+				1A93B0541B0C92F800AA53DD /* ProfileEventHandling.m in Sources */,
+				1A93B0551B0C92F800AA53DD /* PJSONConsts.m in Sources */,
+				1A93B0561B0C92F800AA53DD /* UserProfile.m in Sources */,
+				1A93B0571B0C92F800AA53DD /* SocialController.m in Sources */,
+				1A93B0581B0C92F800AA53DD /* UserProfileNotFoundException.m in Sources */,
+				1A93B0591B0C92F800AA53DD /* AuthController.m in Sources */,
+				1A93B05A1B0C92F800AA53DD /* UserProfileUtils.m in Sources */,
+				1A93B05B1B0C92F800AA53DD /* SocialActionUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A93B0741B0C92F800AA53DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SocialiOSProfile.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SocialiOSProfile/SocialiOSProfile-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/submodules/social-ios-core/SocialiOSCore/**",
+				);
+				LIBRARY_SEARCH_PATHS = "build/**";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = SocialiOSProfile;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1A93B0751B0C92F800AA53DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SocialiOSProfile.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SocialiOSProfile/SocialiOSProfile-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/submodules/social-ios-core/SocialiOSCore/**",
+				);
+				LIBRARY_SEARCH_PATHS = "build/**";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = SocialiOSProfile;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		EF356F1B193C90560081DCE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRIVATE_HEADERS_FOLDER_PATH = /headers/private;
+				PUBLIC_HEADERS_FOLDER_PATH = /headers/public;
+				SDKROOT = iphoneos;
+				SYMROOT = out;
+			};
+			name = Debug;
+		};
+		EF356F1C193C90560081DCE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRIVATE_HEADERS_FOLDER_PATH = /headers/private;
+				PUBLIC_HEADERS_FOLDER_PATH = /headers/public;
+				SDKROOT = iphoneos;
+				SYMROOT = out;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A93B0731B0C92F800AA53DD /* Build configuration list for PBXNativeTarget "SocialiOSProfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A93B0741B0C92F800AA53DD /* Debug */,
+				1A93B0751B0C92F800AA53DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF356EF5193C90560081DCE0 /* Build configuration list for PBXProject "SocialiOSProfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF356F1B193C90560081DCE0 /* Debug */,
+				EF356F1C193C90560081DCE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF356EF2193C90560081DCE0 /* Project object */;
+}
