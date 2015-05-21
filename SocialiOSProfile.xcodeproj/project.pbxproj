@@ -348,6 +348,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = SocialiOSProfile;
 				SKIP_INSTALL = YES;
+				SYMROOT = "$(SRCROOT)/out";
 			};
 			name = Debug;
 		};
@@ -370,6 +371,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = SocialiOSProfile;
 				SKIP_INSTALL = YES;
+				SYMROOT = "$(SRCROOT)/out";
 			};
 			name = Release;
 		};
