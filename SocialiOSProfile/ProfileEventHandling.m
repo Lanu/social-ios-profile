@@ -41,6 +41,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_FEED_STARTED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_FEED_FINISHED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_FEED_FAILED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_ACCESSTOKEN_STARTED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_ACCESSTOKEN_FINISHED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_ACCESSTOKEN_CANCELLED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_GET_ACCESSTOKEN_FAILED object:nil];
 }
 
 + (void)postProfileInitialized {
@@ -89,6 +93,26 @@
 + (void)postLogoutFailed:(Provider)provider withMessage:(NSString *)message {
     NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_MESSAGE: message};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_LOGOUT_FAILED object:self userInfo:userInfo];
+}
+
++ (void)postGetAccessTokenStarted:(Provider)provider withPayload:(NSString *)payload {
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: [NSNumber numberWithInt:provider], DICT_ELEMENT_PAYLOAD: payload};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_STARTED object:self userInfo:userInfo];
+}
+
++ (void)postGetAccessTokenFinished:(Provider)provider withPayload:(NSString *)payload {
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: [NSNumber numberWithInt:provider], DICT_ELEMENT_PAYLOAD: payload};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_FINISHED object:self userInfo:userInfo];
+}
+
++ (void)postGetAccessTokenCancelled:(Provider)provider withPayload:(NSString *)payload {
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_PAYLOAD: payload};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_CANCELLED object:self userInfo:userInfo];
+}
+
++ (void)postGetAccessTokenFailed:(Provider)provider withMessage:(NSString *)message withPayload:(NSString *)payload {
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_MESSAGE: message, DICT_ELEMENT_PAYLOAD: payload};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_FAILED object:self userInfo:userInfo];
 }
 
 + (void)postSocialActionStarted:(Provider)provider withType:(SocialActionType)socialActionType withPayload:(NSString *)payload {

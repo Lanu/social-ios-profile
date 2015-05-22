@@ -17,7 +17,6 @@
 #import "ProviderLoader.h"
 #import "UserProfileUtils.h"
 
-@class Reward;
 @class UserProfile;
 
 /**
@@ -43,14 +42,13 @@
 
 
 /**
- Logs into the given provider and grants the user a reward.
+ Logs into the given provider.
  
  @param provider The provider to login with
- @param reward The reward to grant the user for logging in
  @param payload a String to receive when the function returns.
  @exception ProviderNotFoundException if the provider is not supported
  */
-- (void)loginWithProvider:(Provider)provider andPayload:(NSString *)payload andReward:(Reward *)reward;
+- (void)loginWithProvider:(Provider)provider andPayload:(NSString *)payload;
 
 /**
  Logs out of the given provider
@@ -68,6 +66,16 @@
  @exception ProviderNotFoundException if the provider is not supported
  */
 - (BOOL)isLoggedInWithProvider:(Provider)provider;
+
+/**
+ Fetches acces token for the given provider.
+ 
+ @param provider
+ @param requestNew True to try get a new token, false to try get a cached token
+ @param payload a String to receive when the function returns.
+ @exception ProviderNotFoundException if the provider is not supported
+ */
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
 
 /**
  Fetches the user profile for the given provider from the device's storage.

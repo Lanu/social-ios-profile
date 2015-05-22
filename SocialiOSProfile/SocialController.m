@@ -41,7 +41,7 @@ static NSString* TAG = @"SOCIAL SocialController";
     return self;
 }
 
-- (void)updateStatusWithProvider:(Provider)provider andStatus:(NSString *)status andPayload:(NSString *)payload andReward:(Reward *)reward {
+- (void)updateStatusWithProvider:(Provider)provider andStatus:(NSString *)status andPayload:(NSString *)payload {
     
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
@@ -56,7 +56,7 @@ static NSString* TAG = @"SOCIAL SocialController";
     }];
 }
 
-- (void)updateStatusWithProviderDialog:(Provider)provider andLink:(NSString *)link andPayload:(NSString *)payload andReward:(Reward *)reward {
+- (void)updateStatusWithProviderDialog:(Provider)provider andLink:(NSString *)link andPayload:(NSString *)payload {
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
     
@@ -77,8 +77,7 @@ static NSString* TAG = @"SOCIAL SocialController";
                  andDescription:(NSString *)description
                         andLink:(NSString *)link
                      andPicture:(NSString *)picture
-                     andPayload:(NSString *)payload
-                      andReward:(Reward *)reward {
+                     andPayload:(NSString *)payload {
 
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
@@ -99,8 +98,7 @@ static NSString* TAG = @"SOCIAL SocialController";
                        andDescription:(NSString *)description
                               andLink:(NSString *)link
                            andPicture:(NSString *)picture
-                           andPayload:(NSString *)payload
-                            andReward:(Reward *)reward {
+                           andPayload:(NSString *)payload {
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
     // Perform update story process
@@ -116,8 +114,7 @@ static NSString* TAG = @"SOCIAL SocialController";
 - (void)uploadImageWithProvider:(Provider)provider
                      andMessage:(NSString *)message
                     andFilePath:(NSString *)filePath
-                     andPayload:(NSString *)payload
-                      andReward:(Reward *)reward {
+                     andPayload:(NSString *)payload {
     
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
@@ -135,8 +132,7 @@ static NSString* TAG = @"SOCIAL SocialController";
                      andMessage:(NSString *)message
                andImageFileName:(NSString *)fileName
                    andImageData:(NSData *)imageData
-                     andPayload:(NSString *)payload
-                      andReward:(Reward *)reward{
+                     andPayload:(NSString *)payload{
 
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
 
@@ -150,7 +146,7 @@ static NSString* TAG = @"SOCIAL SocialController";
     }];
 }
 
-- (void)getContactsWith:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload andReward:(Reward *)reward {
+- (void)getContactsWith:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload {
     
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
@@ -176,8 +172,7 @@ static NSString* TAG = @"SOCIAL SocialController";
 
 - (void)getFeedProvider:(Provider)provider
            andFromStart:(bool)fromStart
-             andPayload:(NSString *)payload
-              andReward:(Reward *)reward {
+             andPayload:(NSString *)payload{
 
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
 
@@ -194,7 +189,7 @@ static NSString* TAG = @"SOCIAL SocialController";
     }];
 }
 
-- (void)like:(Provider)provider andPageId:(NSString *)pageId andReward:(Reward *)reward {
+- (void)like:(Provider)provider andPageId:(NSString *)pageId {
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
     
     [socialProvider like:pageId];

@@ -18,8 +18,6 @@
 #import "SocialActionUtils.h"
 
 @class UserProfile;
-@class Reward;
-
 // Events
 #define EVENT_UP_PROFILE_INITIALIZED            @"up_profile_initialized"
 
@@ -36,6 +34,11 @@
 #define EVENT_UP_LOGOUT_FINISHED                @"up_logout_finished"
 #define EVENT_UP_LOGOUT_FAILED                  @"up_logout_failed"
 
+#define EVENT_UP_GET_ACCESSTOKEN_STARTED        @"up_get_accesstoken_started"
+#define EVENT_UP_GET_ACCESSTOKEN_FINISHED       @"up_get_accesstoken_finished"
+#define EVENT_UP_GET_ACCESSTOKEN_FAILED         @"up_get_accesstoken_failed"
+#define EVENT_UP_GET_ACCESSTOKEN_CANCELLED      @"up_get_accesstoken_cancelled"
+
 #define EVENT_UP_SOCIAL_ACTION_STARTED          @"up_social_action_started"
 #define EVENT_UP_SOCIAL_ACTION_FINISHED         @"up_social_action_finished"
 #define EVENT_UP_SOCIAL_ACTION_CANCELLED        @"up_social_action_cancelled"
@@ -45,9 +48,9 @@
 #define EVENT_UP_GET_CONTACTS_FINISHED          @"up_get_contacts_finished"
 #define EVENT_UP_GET_CONTACTS_FAILED            @"up_get_contacts_failed"
 
-#define EVENT_UP_GET_FEED_STARTED           @"up_get_feed_started"
-#define EVENT_UP_GET_FEED_FINISHED          @"up_get_feed_finished"
-#define EVENT_UP_GET_FEED_FAILED            @"up_get_feed_failed"
+#define EVENT_UP_GET_FEED_STARTED               @"up_get_feed_started"
+#define EVENT_UP_GET_FEED_FINISHED              @"up_get_feed_finished"
+#define EVENT_UP_GET_FEED_FAILED                @"up_get_feed_failed"
 
 
 // UserProfile Elements
@@ -60,7 +63,6 @@
 #define DICT_ELEMENT_MESSAGE                    @"message"
 #define DICT_ELEMENT_CONTACTS                   @"contacts"
 #define DICT_ELEMENT_FEEDS                      @"feeds"
-#define DICT_ELEMENT_REWARD                     @"reward"
 #define DICT_ELEMENT_IS_BADGE                   @"isBadge"
 
 /**
@@ -156,6 +158,39 @@ Called when the service has been initializedt.
  @param message a Description of the reason for failure
  */
 + (void)postLogoutFailed:(Provider)provider withMessage:(NSString *)message;
+
+/**
+ Called when the get access token process from a provider has started. Which fires the
+ `EVENT_UP_GET_ACCESSTOKEN_STARTED` event.
+ 
+ @param provider The provider on where the access token has started
+ */
++ (void)postGetAccessTokenStarted:(Provider)provider withPayload:(NSString *)payload;
+
+/**
+ Called when the get access token finished. Which fires the
+ `EVENT_UP_GET_ACCESSTOKEN_FINISHED` event.
+ 
+ @param provider The provider on which the access token has finished
+ */
++ (void)postGetAccessTokenFinished:(Provider)provider withPayload:(NSString *)payload;
+
+/**
+ Called when the get access token process from a provider has failed. Which fires the
+ `EVENT_UP_GET_ACCESSTOKEN_FAILED` event.
+ 
+ @param provider The provider on which the access token has failed
+ @param message a Description of the reason for failure
+ */
++ (void)postGetAccessTokenFailed:(Provider)provider withMessage:(NSString *)message withPayload:(NSString *)payload;
+
+/**
+ Called when the get access token process has been cancelled. Which fires the
+ `EVENT_UP_GET_ACCESSTOKEN_CANCELLED` event.
+ 
+ @param provider The provider on which the access token has failed
+ */
++ (void)postGetAccessTokenCancelled:(Provider)provider withPayload:(NSString *)payload;
 
 /**
  Called when a generic social action on a provider has started. Which fires the

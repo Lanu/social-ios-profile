@@ -17,8 +17,6 @@
 #import "AuthController.h"
 #import "UserProfileUtils.h"
 
-@class Reward;
-
 /**
  A class that loads all social providers and performs social
  actions on with them.  This class wraps the provider's social
@@ -42,10 +40,10 @@
  @param provider the provider to use
  @param status the text to share
  @param payload a String to receive when the function returns.
- @param reward the reward to grant for sharing
+ 
  @exception ProviderNotFoundException if the provider is not supported
  */
-- (void)updateStatusWithProvider:(Provider)provider andStatus:(NSString *)status andPayload:(NSString *)payload andReward:(Reward *)reward;
+- (void)updateStatusWithProvider:(Provider)provider andStatus:(NSString *)status andPayload:(NSString *)payload;
 
 /**
  Shares the given status and link to the user's feed using the provider's
@@ -54,10 +52,10 @@
  @param provider the provider to use
  @param link the link to share (could be nil when not needed)
  @param payload a String to receive when the function returns.
- @param reward the reward to grant for sharing
+ 
  @exception ProviderNotFoundException if the provider is not supported
  */
-- (void)updateStatusWithProviderDialog:(Provider)provider andLink:(NSString *)link andPayload:(NSString *)payload andReward:(Reward *)reward;
+- (void)updateStatusWithProviderDialog:(Provider)provider andLink:(NSString *)link andPayload:(NSString *)payload;
 
 /**
  Shares a story to the user's feed.  This is very oriented for Facebook.
@@ -83,8 +81,7 @@
                  andDescription:(NSString *)description
                         andLink:(NSString *)link
                      andPicture:(NSString *)picture
-                     andPayload:(NSString *)payload
-                      andReward:(Reward *)reward;
+                     andPayload:(NSString *)payload;
 
 /**
  Shares a story to the user's feed and grants the user a reward, using the 
@@ -108,8 +105,7 @@
                        andDescription:(NSString *)description
                               andLink:(NSString *)link
                            andPicture:(NSString *)picture
-                           andPayload:(NSString *)payload
-                            andReward:(Reward *)reward;
+                           andPayload:(NSString *)payload;
 
 /**
  Shares a photo to the user's feed.  This is very oriented for Facebook.
@@ -118,14 +114,12 @@
  @param message A text that will accompany the image
  @param filePath The desired image's location on the device (full path)
  @param payload a String to receive when the function returns.
- @param reward The reward to grant for sharing the photo
  @exception ProviderNotFoundException if the provider is not supported
  */
 - (void)uploadImageWithProvider:(Provider)provider
                      andMessage:(NSString *)message
                     andFilePath:(NSString *)filePath
-                     andPayload:(NSString *)payload
-                      andReward:(Reward *)reward;
+                     andPayload:(NSString *)payload;
 
 /**
  Shares a photo to the user's feed.  This is very oriented for Facebook.
@@ -135,46 +129,40 @@
  @param fileName The desired image's name
  @param imageData The desired image's data
  @param payload a String to receive when the function returns.
- @param reward The reward to grant for sharing the photo
  @exception ProviderNotFoundException if the provider is not supported
  */
 - (void)uploadImageWithProvider:(Provider)provider
                      andMessage:(NSString *)message
                andImageFileName:(NSString *)fileName
                    andImageData:(NSData *)imageData
-                     andPayload:(NSString *)payload
-                      andReward:(Reward *)reward;
+                     andPayload:(NSString *)payload;
 
 /**
  Fetches the user's contact list
  
  @param provider The provider to use
  @param payload a String to receive when the function returns.
- @param reward The reward to grant
  @exception ProviderNotFoundException if the provider is not supported
  */
-- (void)getContactsWith:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload andReward:(Reward *)reward;
+- (void)getContactsWith:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload;
 
 /**
  Fetches the user's feed.
  
  @param provider The provider to use
  @param payload a String to receive when the function returns.
- @param reward The reward to grant
  @exception ProviderNotFoundException if the provider is not supported
 */
-- (void)getFeedProvider:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload andReward:(Reward *)reward;
+- (void)getFeedProvider:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload;
 
 /**
  Opens up a page to like for the user (external)
  
  @param provider The provider to like page on
  @param pageId The page to open on the provider
- @param reward The reward to grant when page is liked
  @exception ProviderNotFoundException if the provider is not supported
  */
 - (void)like:(Provider)provider
-            andPageId:(NSString *)pageId
-            andReward:(Reward *)reward;
+            andPageId:(NSString *)pageId;
 
 @end

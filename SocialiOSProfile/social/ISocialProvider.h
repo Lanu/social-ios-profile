@@ -136,7 +136,6 @@
  Opens up a page to like for the user (external)
 
  @param pageId The page to open on the provider
- @param reward The reward to grant when page is liked
  */
 - (void)like:(NSString *)pageId;
 

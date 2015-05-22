@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>com.tacx.social.social.provider</key>
+	<key>com.tacx.social.provider</key>
 	<array>
-		<string>plugin.facebook.SoomlaFacebook</string>
+		<string>plugin.facebook.SocialFacebook</string>
 	</array>
 </dict>
 </plist>
