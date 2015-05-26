@@ -68,16 +68,6 @@
 - (BOOL)isLoggedInWithProvider:(Provider)provider;
 
 /**
- Fetches acces token for the given provider.
- 
- @param provider
- @param requestNew True to try get a new token, false to try get a cached token
- @param payload a String to receive when the function returns.
- @exception ProviderNotFoundException if the provider is not supported
- */
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
-
-/**
  Fetches the user profile for the given provider from the device's storage.
  
  @param provider

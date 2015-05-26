@@ -98,23 +98,6 @@ static NSString* TAG = @"SOCIAL AuthController";
     }];
 }
 
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
-    
-    id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];
-    [ProfileEventHandling postGetAccessTokenStarted:provider withPayload:payload];
-
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [authProvider getAccesToken:^(Provider provider) {
-            [ProfileEventHandling postGetAccessTokenFinished:provider withPayload:payload];
-        } fail:^(NSString *message) {
-            [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
-        } cancel:^{
-            [ProfileEventHandling postGetAccessTokenCancelled:provider withPayload:payload];
-        }];
-    }];
-
-}
-
 - (BOOL)isLoggedInWithProvider:(Provider)provider {
     id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];
     return [authProvider isLoggedIn];

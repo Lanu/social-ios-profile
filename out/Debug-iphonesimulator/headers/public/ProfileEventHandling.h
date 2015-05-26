@@ -64,6 +64,7 @@
 #define DICT_ELEMENT_CONTACTS                   @"contacts"
 #define DICT_ELEMENT_FEEDS                      @"feeds"
 #define DICT_ELEMENT_IS_BADGE                   @"isBadge"
+#define DICT_ELEMENT_ACCESSTOKEN                @"accessToken"
 
 /**
  * This class is used to register and post all the supported profile events.
@@ -172,8 +173,9 @@ Called when the service has been initializedt.
  `EVENT_UP_GET_ACCESSTOKEN_FINISHED` event.
  
  @param provider The provider on which the access token has finished
+ @param accessToken the access token
  */
-+ (void)postGetAccessTokenFinished:(Provider)provider withPayload:(NSString *)payload;
++ (void)postGetAccessTokenFinished:(Provider)provider withAccessToken:(NSString *)accessToken withPayload:(NSString *)payload;
 
 /**
  Called when the get access token process from a provider has failed. Which fires the

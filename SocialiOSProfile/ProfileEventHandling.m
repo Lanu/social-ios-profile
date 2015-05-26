@@ -100,8 +100,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_STARTED object:self userInfo:userInfo];
 }
 
-+ (void)postGetAccessTokenFinished:(Provider)provider withPayload:(NSString *)payload {
-    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: [NSNumber numberWithInt:provider], DICT_ELEMENT_PAYLOAD: payload};
++ (void)postGetAccessTokenFinished:(Provider)provider withAccessToken:(NSString *)accessToken withPayload:(NSString *)payload {
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_MESSAGE: accessToken, DICT_ELEMENT_PAYLOAD: payload};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_FINISHED object:self userInfo:userInfo];
 }
 
@@ -111,7 +111,7 @@
 }
 
 + (void)postGetAccessTokenFailed:(Provider)provider withMessage:(NSString *)message withPayload:(NSString *)payload {
-    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_MESSAGE: message, DICT_ELEMENT_PAYLOAD: payload};
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_ACCESSTOKEN: message, DICT_ELEMENT_PAYLOAD: payload};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_GET_ACCESSTOKEN_FAILED object:self userInfo:userInfo];
 }
 

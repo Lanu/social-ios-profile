@@ -105,6 +105,15 @@
 - (void)getFeed:(bool)fromStart success:(feedsActionSuccess)success fail:(feedsActionFail)fail;
 
 /**
+ Fetches the access token
+ 
+ @param sucesss a fetch sucess callback
+ @param fail a fetch failure callback
+ @param cancel a fetch cancelled callback
+ */
+- (void)getAccesToken:(accessTokenSuccess)success fail:(accessTokenFail)fail cancel:(accessTokenCancel)cancel;
+
+/**
  Shares a photo to the user's feed
 
  @param message A text that will accompany the image

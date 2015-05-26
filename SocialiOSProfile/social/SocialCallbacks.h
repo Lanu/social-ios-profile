@@ -23,3 +23,6 @@ typedef void (^contactsActionSuccess)(NSArray* userProfiles, bool hasMore);
 typedef void (^contactsActionFail)(NSString* message);
 typedef void (^feedsActionSuccess)(NSArray* feeds, bool hasMore);
 typedef void (^feedsActionFail)(NSString* message);
+typedef void (^accessTokenSuccess)(NSString* accessToken);
+typedef void (^accessTokenFail)(NSString* message);
+typedef void (^accessTokenCancel)();

@@ -85,7 +85,7 @@
 		1A3FBB941B0C8E30000037D6 /* UserProfileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileUtils.h; sourceTree = "<group>"; };
 		1A3FBB951B0C8E30000037D6 /* UserProfileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileUtils.m; sourceTree = "<group>"; };
 		1A93B0761B0C92F800AA53DD /* libSocialiOSProfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocialiOSProfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A93B0781B0C975900AA53DD /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SocialiOSProfile-Info.plist"; path = "../../../../Soom/unity3d-profile/submodules/ios-profile/SoomlaiOSProfile/SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
+		1A98BB951B0F5B09006E7C97 /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
 		3AFD6F1B1986E173001360D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF356EFD193C90560081DCE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF356F0B193C90560081DCE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3FBB911B0C8E30000037D6 /* SocialiOSProfile-Prefix.pch */,
-				1A93B0781B0C975900AA53DD /* SocialiOSProfile-Info.plist */,
+				1A98BB951B0F5B09006E7C97 /* SocialiOSProfile-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

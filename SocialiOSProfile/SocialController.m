@@ -146,6 +146,23 @@ static NSString* TAG = @"SOCIAL SocialController";
     }];
 }
 
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
+    
+    id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];
+    
+    // Perform get access token process
+    [ProfileEventHandling postGetAccessTokenStarted:provider withPayload:payload];
+    
+    [socialProvider getAccesToken:^(NSString *accessToken)
+    {
+        [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
+    }fail:^(NSString *message) {
+        [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
+    } cancel:^{
+        [ProfileEventHandling postGetAccessTokenCancelled:provider withPayload:payload];
+    }];
+}
+
 - (void)getContactsWith:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload {
     
     id<ISocialProvider> socialProvider = (id<ISocialProvider>)[self getProvider:provider];

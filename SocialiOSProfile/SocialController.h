@@ -138,6 +138,16 @@
                      andPayload:(NSString *)payload;
 
 /**
+ Fetches acces token for the given provider.
+ 
+ @param provider
+ @param requestNew True to try get a new token, false to try get a cached token
+ @param payload a String to receive when the function returns.
+ @exception ProviderNotFoundException if the provider is not supported
+ */
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
+
+/**
  Fetches the user's contact list
  
  @param provider The provider to use
