@@ -28,6 +28,9 @@ typedef void (^userProfileSuccess)(UserProfile* userProfile);
 typedef void (^userProfileFail)(NSString* message);
 typedef void (^logoutSuccess)();
 typedef void (^logoutFail)(NSString* message);
+typedef void (^accessTokenSuccess)(NSString* accessToken);
+typedef void (^accessTokenFail)(NSString* message);
+typedef void (^accessTokenCancel)();
 
 /**
  A provider that exposes authentication capabilities.
@@ -66,6 +69,15 @@ typedef void (^logoutFail)(NSString* message);
  NO otherwise
  */
 - (BOOL)isLoggedIn;
+
+/**
+ Fetches the access token
+ 
+ @param sucesss a fetch sucess callback
+ @param fail a fetch failure callback
+ @param cancel a fetch cancelled callback
+ */
+- (void)getAccessToken:(accessTokenSuccess)success fail:(accessTokenFail)fail cancel:(accessTokenCancel)cancel;
 
 /**
  Helper method to assist with browser-based authentication for the provider.

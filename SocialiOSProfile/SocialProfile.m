@@ -93,6 +93,18 @@ BOOL UsingExternalProvider;
 
 }
 
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
+    @try {
+        [authController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload];
+
+    }
+    @catch (NSException *exception) {
+        
+        // TODO: implement logic like in java that will raise the exception. Currently not raised
+        [socialController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload];
+    }
+}
+
 - (UserProfile *)getStoredUserProfileWithProvider:(Provider)provider {
     @try {
         return [authController getStoredUserProfileWithProvider:provider];
@@ -201,11 +213,6 @@ BOOL UsingExternalProvider;
                      andMessage:(NSString *)message
                     andFilePath:(NSString *)filePath {
     [self uploadImageWithProvider:provider andMessage:message andFilePath:filePath andPayload:@""];
-}
-
-
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
-    [socialController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload];
 }
 
 - (void)getContactsWithProvider:(Provider)provider andPayload:(NSString *)payload  {

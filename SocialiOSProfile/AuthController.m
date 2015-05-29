@@ -103,6 +103,24 @@ static NSString* TAG = @"SOCIAL AuthController";
     return [authProvider isLoggedIn];
 }
 
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
+    
+    id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];
+    [ProfileEventHandling postGetAccessTokenStarted:provider withPayload:payload];
+    
+    // Perform get access token process
+    // TODO: Check if need to change any nonatomic properties
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [authProvider getAccessToken:^(NSString *accessToken) {
+            [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
+        } fail:^(NSString *message) {
+            [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
+        } cancel:^{
+            [ProfileEventHandling postGetAccessTokenCancelled:provider withPayload:payload];
+        }];
+    }];
+}
+
 - (UserProfile *)getStoredUserProfileWithProvider:(Provider)provider {
     UserProfile* userProfile = [UserProfileStorage getUserProfile:provider];
     if (!userProfile) {

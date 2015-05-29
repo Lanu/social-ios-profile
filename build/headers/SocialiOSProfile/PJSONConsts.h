@@ -14,12 +14,16 @@
  limitations under the License.
  */
 
+/** User Profile **/
 
-// Define block signatures
-
-typedef void (^socialActionSuccess)();
-typedef void (^socialActionFail)(NSString* message);
-typedef void (^contactsActionSuccess)(NSArray* userProfiles, bool hasMore);
-typedef void (^contactsActionFail)(NSString* message);
-typedef void (^feedsActionSuccess)(NSArray* feeds, bool hasMore);
-typedef void (^feedsActionFail)(NSString* message);
+extern NSString *const UP_PROVIDER;
+extern NSString *const UP_PROFILEID;
+extern NSString *const UP_USERNAME;
+extern NSString *const UP_EMAIL;
+extern NSString *const UP_FIRSTNAME;
+extern NSString *const UP_LASTNAME;
+extern NSString *const UP_AVATAR;
+extern NSString *const UP_LOCATION;
+extern NSString *const UP_GENDER;
+extern NSString *const UP_LANGUAGE;
+extern NSString *const UP_BIRTHDAY;

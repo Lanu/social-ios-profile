@@ -25,7 +25,7 @@
 
 @implementation SocialGooglePlus
 
-@synthesize loginSuccess, loginFail, loginCancel, logoutSuccess, logoutFail, socialActionSuccess, socialActionFail, clientId;
+@synthesize loginSuccess, loginFail, loginCancel, logoutSuccess, logoutFail, socialActionSuccess, socialActionFail, clientId, accessTokenSuccess, accessTokenFail, accessTokenCancel;
 
 static NSString *TAG = @"SOCIAL SocialGooglePlus";
 
@@ -91,6 +91,11 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
         else
             self.loginFail([error localizedDescription]);
     } else {
+        if ([[GPPSignIn sharedInstance] authentication])
+        {
+            NSString *oauthToken = auth.accessToken;
+            self.accessTokenSuccess(oauthToken);
+        }
         [self refreshInterfaceBasedOnSignIn];
     }
 }
@@ -99,6 +104,7 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 -(void)refreshInterfaceBasedOnSignIn {
     if ([[GPPSignIn sharedInstance] authentication]) {
         self.loginSuccess(GOOGLE);
+
     } else {
         [self clearLoginBlocks];
         self.loginFail(@"GooglePlus Authentication failed.");
@@ -132,6 +138,12 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
     self.logoutFail = fail;
     [[GPPSignIn sharedInstance] disconnect];
 }
+
+- (void)getAccessToken:(accessTokenSuccess)success fail:(accessTokenFail)fail cancel:(accessTokenCancel)cancel{
+    LogDebug(TAG, @"getAccessToken");
+    [self setAccessTokenBlocks:success fail:fail cancel:cancel];
+}
+
 
 - (void)didDisconnectWithError:(NSError *)error {
     if (error) {
@@ -356,6 +368,12 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 -(void)setSocialActionBlocks:(socialActionSuccess)success fail:(socialActionFail)fail{
     self.socialActionSuccess = success;
     self.socialActionFail = fail;
+}
+
+-(void)setAccessTokenBlocks:(accessTokenSuccess)success fail:(accessTokenFail)fail cancel:(accessTokenCancel)cancel{
+    self.accessTokenSuccess = success;
+    self.accessTokenFail = fail;
+    self.accessTokenCancel = cancel;
 }
 
 - (void)clearLoginBlocks {

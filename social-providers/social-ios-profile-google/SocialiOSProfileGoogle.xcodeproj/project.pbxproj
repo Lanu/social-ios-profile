@@ -87,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32CDBD361A0AA168001DF8A1 /* GooglePlus.framework in Frameworks */,
+				32CDBD341A0AA15B001DF8A1 /* GoogleOpenSource.framework in Frameworks */,
 				32CDBD4A1A0AA1CA001DF8A1 /* UIKit.framework in Frameworks */,
 				32CDBD481A0AA1C2001DF8A1 /* SystemConfiguration.framework in Frameworks */,
 				32CDBD461A0AA1B9001DF8A1 /* Security.framework in Frameworks */,
@@ -97,8 +99,6 @@
 				32CDBD3C1A0AA197001DF8A1 /* CoreLocation.framework in Frameworks */,
 				32CDBD3A1A0AA187001DF8A1 /* AssetsLibrary.framework in Frameworks */,
 				32CDBD381A0AA17F001DF8A1 /* AddressBook.framework in Frameworks */,
-				32CDBD361A0AA168001DF8A1 /* GooglePlus.framework in Frameworks */,
-				32CDBD341A0AA15B001DF8A1 /* GoogleOpenSource.framework in Frameworks */,
 				32CDBD321A0AA13E001DF8A1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

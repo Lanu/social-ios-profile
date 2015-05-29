@@ -14,12 +14,25 @@
  limitations under the License.
  */
 
+#import "UserProfileUtils.h"
 
-// Define block signatures
+/**
+ A protocol that represents a provider, which will be used later for
+ authentication and social actions.
+ */
+@protocol IProvider <NSObject>
 
-typedef void (^socialActionSuccess)();
-typedef void (^socialActionFail)(NSString* message);
-typedef void (^contactsActionSuccess)(NSArray* userProfiles, bool hasMore);
-typedef void (^contactsActionFail)(NSString* message);
-typedef void (^feedsActionSuccess)(NSArray* feeds, bool hasMore);
-typedef void (^feedsActionFail)(NSString* message);
+/**
+ Applies special initialization parameters to the provider
+ 
+ @param providerParams the parameters needed by the provider to initialize
+ */
+- (void)applyParams:(NSDictionary *)providerParams;
+
+/**
+ Retrieves the `Provider` value of the provider it implements
+ @return the `Provider` value of the provider it implements
+ */
+- (Provider)getProvider;
+
+@end
