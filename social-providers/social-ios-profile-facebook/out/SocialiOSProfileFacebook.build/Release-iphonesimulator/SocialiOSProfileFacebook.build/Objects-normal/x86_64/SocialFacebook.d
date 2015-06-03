@@ -1,52 +1,52 @@
 dependencies: \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook/SocialFacebook.m \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook/SocialFacebook.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook/SocialFacebook.m \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook/SocialFacebook.h \
   ../../SocialiOSProfile/social/ISocialProvider.h \
   ../../SocialiOSProfile/auth/IAuthProvider.h \
   ../../SocialiOSProfile/UserProfileUtils.h \
   ../../SocialiOSProfile/domain/IProvider.h \
   ../../SocialiOSProfile/social/SocialCallbacks.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FacebookSDK.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAccessTokenData.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSession.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSDKMacros.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAppCall.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAppLinkData.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBDialogsData.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAppEvents.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBCacheDescriptor.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBDialogs.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBLinkShareParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBDialogsParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphActionParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphAction.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphObject.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBPhotoParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBError.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBErrorUtility.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBFrictionlessRecipientCache.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBRequest.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphObject.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBRequestConnection.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBWebDialogs.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBFriendPickerViewController.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphUser.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphPlace.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphLocation.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBViewController.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBInsights.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBLikeControl.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBLoginView.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBTooltipView.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBNativeDialogs.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphActionShareDialogParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBShareDialogParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBPlacePickerViewController.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBProfilePictureView.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSessionTokenCachingStrategy.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSettings.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBShareDialogPhotoParams.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBUserSettingsViewController.h \
-  /Users/thejoker/Documents/unity3d-social/social-native/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/NSError+FBError.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FacebookSDK.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAccessTokenData.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSession.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSDKMacros.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAppCall.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAppLinkData.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBDialogsData.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAppEvents.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBCacheDescriptor.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBDialogs.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBLinkShareParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBDialogsParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphActionParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphAction.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphObject.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBPhotoParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBError.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBErrorUtility.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBFrictionlessRecipientCache.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBRequest.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphObject.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBRequestConnection.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBWebDialogs.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBFriendPickerViewController.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphUser.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphPlace.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBGraphLocation.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBViewController.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBInsights.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBLikeControl.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBLoginView.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBTooltipView.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBNativeDialogs.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBOpenGraphActionShareDialogParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBShareDialogParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBPlacePickerViewController.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBProfilePictureView.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSessionTokenCachingStrategy.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSettings.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBShareDialogPhotoParams.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBUserSettingsViewController.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/NSError+FBError.h \
   ../../SocialiOSProfile/domain/UserProfile.h \
   ../../submodules/social-ios-core/SocialiOSCore/SocialUtils.h

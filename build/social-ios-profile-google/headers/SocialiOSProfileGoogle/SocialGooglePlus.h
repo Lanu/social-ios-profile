@@ -23,9 +23,6 @@
     loginCancel loginCancel;
     logoutSuccess logoutSuccess;
     logoutFail logoutFail;
-    accessTokenSuccess accessTokenSuccess;
-    accessTokenFail accessTokenFail;
-    accessTokenCancel accessTokenCancel;
 }
 
 @property (strong, nonatomic) loginSuccess loginSuccess;
@@ -36,8 +33,5 @@
 @property (strong, nonatomic) socialActionSuccess socialActionSuccess;
 @property (strong, nonatomic) socialActionFail socialActionFail;
 @property (strong, nonatomic, readonly) NSString *clientId;
-@property (strong, nonatomic) accessTokenSuccess accessTokenSuccess;
-@property (strong, nonatomic) accessTokenFail accessTokenFail;
-@property (strong, nonatomic) accessTokenCancel accessTokenCancel;
 
 @end
