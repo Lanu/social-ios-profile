@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/thejoker/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/UserProfileNotFoundException.m \
-  /Users/thejoker/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/UserProfileNotFoundException.h
+  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/UserProfileNotFoundException.m \
+  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/UserProfileNotFoundException.h
