@@ -17,7 +17,6 @@
 #import "SocialGooglePlus.h"
 #import "UserProfile.h"
 #import "SocialUtils.h"
-#import <GoogleOpenSource/GoogleOpenSource.h>
 
 @interface SocialGooglePlus ()
 @property(nonatomic, strong) id lastPageToken;
@@ -25,7 +24,7 @@
 
 @implementation SocialGooglePlus
 
-@synthesize loginSuccess, loginFail, loginCancel, logoutSuccess, logoutFail, socialActionSuccess, socialActionFail, clientId;
+@synthesize loginSuccess, loginFail, loginCancel, logoutSuccess, logoutFail, userProfileSuccess, userProfileFail, clientId;
 
 static NSString *TAG = @"SOCIAL SocialGooglePlus";
 
@@ -67,37 +66,69 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 }
 
 - (void)startGooglePlusAuth{
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    GPPShare *share = [GPPShare sharedInstance];
-    NSArray* scopes = [NSArray arrayWithObjects:kGTLAuthScopePlusLogin,kGTLAuthScopePlusUserinfoProfile, nil];
+    GIDSignIn *signIn = [GIDSignIn sharedInstance];
+    //NSArray* scopes = [NSArray arrayWithObjects:kGTLAuthScopePlusLogin,kGTLAuthScopePlusUserinfoProfile, nil];
     
-    signIn.shouldFetchGoogleUserEmail = YES;
-    signIn.shouldFetchGooglePlusUser = YES;
-    signIn.attemptSSO = YES; // tries to use other installed Google apps
+    signIn.shouldFetchBasicProfile = YES;
+    signIn.allowsSignInWithBrowser = NO;
     signIn.clientID = self.clientId;
-    signIn.scopes = scopes;
+    //signIn.scopes = scopes;
     
     signIn.delegate = self;
-    share.delegate = self;
-    
-    [signIn authenticate];
+    signIn.uiDelegate = self;
+    [signIn signIn];
 }
 
-- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
-                   error: (NSError *) error {
+#pragma mark - GIDSignInDelegate
+
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
     if (error) {
         if ([error code] == -1)
             self.loginCancel();
         else
             self.loginFail([error localizedDescription]);
-    } else {
-        [self refreshInterfaceBasedOnSignIn];
+    }else {
+        [self reportAuthStatus];
     }
 }
 
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    if (error) {
+         self.logoutFail([error localizedDescription]);
+    } else {
+        [self clearLoginBlocks];
+        self.logoutSuccess();
+    }
+    [self reportAuthStatus];
+}
 
--(void)refreshInterfaceBasedOnSignIn {
-    if ([[GPPSignIn sharedInstance] authentication]) {
+/** Google Sign-In SDK
+ @date July 19, 2015
+ */
+- (void)signIn:(GIDSignIn *)signIn
+presentViewController:(UIViewController *)viewController {
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [rootViewController presentViewController:viewController animated:YES completion:nil];
+}
+
+/** Google Sign-In SDK
+ @date July 19, 2015
+ */
+- (void)signIn:(GIDSignIn *)signIn
+dismissViewController:(UIViewController *)viewController {
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [rootViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Helper methods
+
+- (void)reportAuthStatus {
+    GIDGoogleUser *googleUser = [[GIDSignIn sharedInstance] currentUser];
+    if (googleUser.authentication) {
         self.loginSuccess(GOOGLE);
     } else {
         [self clearLoginBlocks];
@@ -105,41 +136,38 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
     }
 }
 
+// Update the interface elements containing user data to reflect the
+// currently signed in user.
+- (void)refreshUserInfo {
+    if ([GIDSignIn sharedInstance].currentUser.authentication == nil) {
+        LogError(TAG, @"Failed getting user profile");
+        self.userProfileFail(@"Failed getting user profile");
+        return;
+    }
+    
+    UserProfile *userProfile = [self parseGoogleContact:[GIDSignIn sharedInstance].currentUser];
+    self.userProfileSuccess(userProfile);
+
+}
+
 - (void)getUserProfile:(userProfileSuccess)success fail:(userProfileFail)fail{
     LogDebug(TAG, @"getUserProfile");
-    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-    plusService.retryEnabled = YES;
-    [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
     
-    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
-    [plusService executeQuery:query
-            completionHandler:^(GTLServiceTicket *ticket,
-                                GTLPlusPerson *person,
-                                NSError *error) {
-                if (error) {
-                    LogError(TAG, @"Failed getting user profile");
-                    fail([error localizedDescription]);
-                } else {
-                    UserProfile *userProfile = [self parseGoogleContact:person];
-                    success(userProfile);
-                }
-            }];
+    [self refreshUserInfo];
 }
 
 - (void)logout:(logoutSuccess)success fail:(logoutFail)fail{
     LogDebug(TAG, @"logout");
     self.logoutSuccess = success;
     self.logoutFail = fail;
-    [[GPPSignIn sharedInstance] disconnect];
+    [[GIDSignIn sharedInstance] disconnect];
 }
 
 - (void)getAccessToken:(accessTokenSuccess)success fail:(accessTokenFail)fail cancel:(accessTokenCancel)cancel{
     LogDebug(TAG, @"getAccessToken");
 
-    GTMOAuth2Authentication *auth= [[GPPSignIn sharedInstance] authentication];
-    
-    if (auth) {
-        NSString *oauth = [auth accessToken];
+    if ([self isLoggedIn]) {
+        NSString *oauth = [GIDSignIn sharedInstance].currentUser.authentication.accessToken;
         success(oauth);
     } else {
         fail(@"Get access token failed");
@@ -147,184 +175,23 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 
 }
 
-- (void)didDisconnectWithError:(NSError *)error {
-    if (error) {
-        self.logoutFail([error localizedDescription]);
-    } else {
-        [self clearLoginBlocks];
-        self.logoutSuccess();
-    }
-}
-
 - (BOOL)isLoggedIn{
     LogDebug(TAG, @"isLoggedIn");
-    return ([GPPSignIn sharedInstance].authentication != nil);
+    return ([GIDSignIn sharedInstance].currentUser.authentication != nil);
 }
 
 - (BOOL)tryHandleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [GPPURLHandler handleURL:url
+    return [[GIDSignIn sharedInstance] handleURL:url
            sourceApplication:sourceApplication
                          annotation:annotation];
-}
-
-- (void)updateStatus:(NSString *)status success:(socialActionSuccess)success fail:(socialActionFail)fail{
-    LogDebug(TAG, @"updateStatus");
-    [self setSocialActionBlocks:success fail:fail];
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-    [shareBuilder setPrefillText:status];
-    [shareBuilder open];
-}
-
-- (void)updateStatusWithProviderDialog:(NSString *)link success:(socialActionSuccess)success fail:(socialActionFail)fail{
-    LogDebug(TAG, @"updateStatus");
-    [self setSocialActionBlocks:success fail:fail];
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-    [shareBuilder setURLToShare:[NSURL URLWithString:link]];
-    [shareBuilder open];
-}
-
-- (void)updateStoryWithMessage:(NSString *)message
-                       andName:(NSString *)name
-                    andCaption:(NSString *)caption
-                andDescription:(NSString *)description
-                       andLink:(NSString *)link
-                    andPicture:(NSString *)picture
-                       success:(socialActionSuccess)success
-                          fail:(socialActionFail)fail
-{
-    [self setSocialActionBlocks:success fail:fail];
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-    [shareBuilder setPrefillText:message];
-    [shareBuilder setURLToShare:[NSURL URLWithString:link]];
-    [shareBuilder open];
-}
-
-- (void)updateStoryWithMessageDialog:(NSString *)name
-                          andCaption:(NSString *)caption
-                      andDescription:(NSString *)description
-                             andLink:(NSString *)link
-                          andPicture:(NSString *)picture
-                             success:(socialActionSuccess)success
-                                fail:(socialActionFail)fail
-{
-    fail(@"updateStoryWithMessageDialog is not implemented");
-}
-
-- (void)uploadImageWithMessage:(NSString *)message
-                   andFilePath:(NSString *)filePath
-                       success:(socialActionSuccess)success
-                          fail:(socialActionFail)fail
-{
-    LogDebug(TAG, @"uploadImage");
-    [self setSocialActionBlocks:success fail:fail];
-    [GPPShare sharedInstance].delegate = self;
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-    [shareBuilder setPrefillText:message];
-    [shareBuilder attachImage:[UIImage imageWithContentsOfFile:filePath]];
-    [shareBuilder open];
-}
-
-- (void)uploadImageWithMessage:(NSString *)message
-              andImageFileName: (NSString *)fileName
-                  andImageData: (NSData *)imageData
-                       success:(socialActionSuccess)success
-                          fail:(socialActionFail)fail{
-    LogDebug(TAG, @"uploadImage");
-    [self setSocialActionBlocks:success fail:fail];
-    [GPPShare sharedInstance].delegate = self;
-    id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-
-    [shareBuilder setPrefillText:message];
-
-    UIImage *image = [UIImage imageWithData:imageData];
-    [shareBuilder attachImage:image];
-
-    [shareBuilder open];
-}
-
-- (void)finishedSharingWithError:(NSError *)error {
-    
-    if (!error) {
-        self.socialActionSuccess();
-    } else if (error.code == kGPPErrorShareboxCanceled) {
-        self.socialActionFail(@"Social Action Cancelled");
-    } else {
-        self.socialActionFail([NSString stringWithFormat:@"Social Action Failed (%@)", [error localizedDescription]]);
-    }
-    [self clearSocialActionBlocks];
-}
-
-- (void)getContacts:(bool)fromStart success:(contactsActionSuccess)success fail:(contactsActionFail)fail {
-    LogDebug(TAG, @"getContacts");
-    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-    plusService.retryEnabled = YES;
-    [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
-    
-    GTLQueryPlus *query =
-    [GTLQueryPlus queryForPeopleListWithUserId:@"me"
-                                    collection:kGTLPlusCollectionVisible];
-
-    NSString *pageToken = fromStart ? nil : self.lastPageToken;
-    self.lastPageToken = nil;
-    if (pageToken) {
-        [query setPageToken: pageToken];
-    }
-
-    [plusService executeQuery:query
-            completionHandler:^(GTLServiceTicket *ticket,
-                                GTLPlusPeopleFeed *peopleFeed,
-                                NSError *error) {
-
-                self.lastPageToken = peopleFeed.nextPageToken;
-
-                if (error) {
-                    LogError(TAG, @"Failed getting contacts");
-                    fail([error localizedDescription]);
-                } else {
-
-                    NSArray* rawContacts = peopleFeed.items;
-                    
-                    NSMutableArray *contacts = [NSMutableArray array];
-                    
-                    for (GTLPlusPerson *rawContact in rawContacts) {
-                        UserProfile *contact = [self parseGoogleContact:rawContact];
-                        
-                        [contacts addObject:contact];
-                    }
-                    
-                    success(contacts, peopleFeed.nextPageToken != nil);
-                }
-            }];
-}
-
-- (void)getFeed:(bool)fromFirst success:(feedsActionSuccess)success fail:(feedsActionFail)fail {
-    LogDebug(TAG, @"getFeed");
-    fail(@"getFeed is not implemented!");
 }
 
 - (Provider)getProvider {
     return GOOGLE;
 }
 
-- (void)like:(NSString *)pageId{
-    
-    NSString *baseURL = @"gplus://plus.google.com/";
-
-    if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:baseURL]])
-    {
-        baseURL = @"https://plus.google.com/";
-    }
-    
-    if ([pageId rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
-    {
-        pageId = [NSString stringWithFormat:@"+%@", pageId];
-    }
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURL, pageId]]];
-}
-
--(UserProfile *) parseGoogleContact: (GTLPlusPerson *)googleContact{
-    NSString* displayName = googleContact.displayName;
+-(UserProfile *) parseGoogleContact: (GIDGoogleUser *)googleContact{
+    NSString* displayName = googleContact.profile.name;
     NSString* firstName, *lastName;
     
     if (displayName)
@@ -338,27 +205,25 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
         }
     }
     
-    GTLPlusPersonEmailsItem *email = [googleContact.emails objectAtIndex:0];
     UserProfile * profile =
     [[UserProfile alloc] initWithProvider:GOOGLE
-                             andProfileId:[self parseGoogleContactInfoString:googleContact.identifier]
+                             andProfileId:googleContact.userID
                               andUsername: @""
-                                 andEmail:[self parseGoogleContactInfoString:[email value]]
+                                 andEmail:googleContact.profile.email
                              andFirstName:firstName
                               andLastName:lastName];
     
+    if (![GIDSignIn sharedInstance].currentUser.profile.hasImage) {
+        // There is no Profile Image to be loaded.
+        return profile;
+    }
+    NSUInteger dimension = round(50 * 50);
+    NSURL *imageURL = [[GIDSignIn sharedInstance].currentUser.profile imageURLWithDimension:dimension];
+    
     profile.username = @"";
-    profile.gender = [self parseGoogleContactInfoString:googleContact.gender];
-    profile.birthday = [self parseGoogleContactInfoString:googleContact.birthday];
-    profile.location = [self parseGoogleContactInfoString:googleContact.currentLocation];
-    profile.avatarLink = [self parseGoogleContactInfoString:[googleContact.image url]];
-    profile.language = [self parseGoogleContactInfoString:googleContact.language];
+    profile.avatarLink = [imageURL absoluteString];
     
     return profile;
-}
-
-- (NSString *)parseGoogleContactInfoString:(NSString * )orig{
-    return (orig) ? orig : @"";
 }
 
 -(void)setLoginBlocks:(loginSuccess)success fail:(loginFail)fail cancel:(loginCancel)cancel{
@@ -367,20 +232,10 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
     self.loginCancel = cancel;
 }
 
--(void)setSocialActionBlocks:(socialActionSuccess)success fail:(socialActionFail)fail{
-    self.socialActionSuccess = success;
-    self.socialActionFail = fail;
-}
-
 - (void)clearLoginBlocks {
     self.loginSuccess = nil;
     self.loginFail = nil;
     self.loginCancel = nil;
-}
-
-- (void)clearSocialActionBlocks {
-    self.socialActionSuccess = nil;
-    self.socialActionFail = nil;
 }
 
 - (NSString *)checkAuthParams{
@@ -396,7 +251,7 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
         NSURL *url = [[notification userInfo] valueForKey:@"url"];
         NSString *sourceApplication = [[notification userInfo] valueForKey:@"sourceApplication"];
         id annotation = [[notification userInfo] valueForKey:@"annotation"];
-        BOOL urlWasHandled = [GPPURLHandler handleURL:url
+        BOOL urlWasHandled = [[GIDSignIn sharedInstance] handleURL:url
                                     sourceApplication:sourceApplication
                                            annotation:annotation];
         

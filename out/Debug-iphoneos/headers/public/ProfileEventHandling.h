@@ -15,15 +15,12 @@
  */
 
 #import "UserProfileUtils.h"
-#import "SocialActionUtils.h"
 
 @class UserProfile;
 // Events
 #define EVENT_UP_PROFILE_INITIALIZED            @"up_profile_initialized"
 
 #define EVENT_UP_USER_PROFILE_UPDATED           @"up_user_profile_updated"
-
-#define EVENT_UP_USER_RATING                    @"up_user_rating"
 
 #define EVENT_UP_LOGIN_STARTED                  @"up_login_started"
 #define EVENT_UP_LOGIN_FINISHED                 @"up_login_finished"
@@ -39,31 +36,13 @@
 #define EVENT_UP_GET_ACCESSTOKEN_FAILED         @"up_get_accesstoken_failed"
 #define EVENT_UP_GET_ACCESSTOKEN_CANCELLED      @"up_get_accesstoken_cancelled"
 
-#define EVENT_UP_SOCIAL_ACTION_STARTED          @"up_social_action_started"
-#define EVENT_UP_SOCIAL_ACTION_FINISHED         @"up_social_action_finished"
-#define EVENT_UP_SOCIAL_ACTION_CANCELLED        @"up_social_action_cancelled"
-#define EVENT_UP_SOCIAL_ACTION_FAILED           @"up_social_action_failed"
-
-#define EVENT_UP_GET_CONTACTS_STARTED           @"up_get_contacts_started"
-#define EVENT_UP_GET_CONTACTS_FINISHED          @"up_get_contacts_finished"
-#define EVENT_UP_GET_CONTACTS_FAILED            @"up_get_contacts_failed"
-
-#define EVENT_UP_GET_FEED_STARTED               @"up_get_feed_started"
-#define EVENT_UP_GET_FEED_FINISHED              @"up_get_feed_finished"
-#define EVENT_UP_GET_FEED_FAILED                @"up_get_feed_failed"
-
-
 // UserProfile Elements
 #define DICT_ELEMENT_USER_PROFILE               @"userProfile"
 #define DICT_ELEMENT_PROVIDER                   @"provider"
 #define DICT_ELEMENT_FROM_START                 @"fromStart"
 #define DICT_ELEMENT_PAYLOAD                    @"payload"
 #define DICT_ELEMENT_HAS_MORE                   @"hasMore"
-#define DICT_ELEMENT_SOCIAL_ACTION_TYPE         @"socialActiontype"
 #define DICT_ELEMENT_MESSAGE                    @"message"
-#define DICT_ELEMENT_CONTACTS                   @"contacts"
-#define DICT_ELEMENT_FEEDS                      @"feeds"
-#define DICT_ELEMENT_IS_BADGE                   @"isBadge"
 #define DICT_ELEMENT_ACCESSTOKEN                @"accessToken"
 
 /**
@@ -87,11 +66,6 @@
 Called when the service has been initializedt.
 */
 + (void)postProfileInitialized;
-
-/**
- Called when the app's rating page is opened
- */
-+ (void)postUserRating;
 
 /**
  Called when a user profile from a provider has been retrieved
@@ -193,102 +167,4 @@ Called when the service has been initializedt.
  @param provider The provider on which the access token has failed
  */
 + (void)postGetAccessTokenCancelled:(Provider)provider withPayload:(NSString *)payload;
-
-/**
- Called when a generic social action on a provider has started. Which fires the
- `EVENT_UP_SOCIAL_ACTION_STARTED` event.
- 
- @param provider The provider on which the social action has started
- @param socialActionType The social action which started
- */
-+ (void)postSocialActionStarted:(Provider)provider withType:(SocialActionType)socialActionType withPayload:(NSString *)payload;
-
-/**
- Called when a generic social action on a provider has finished. Which fires the
- `EVENT_UP_SOCIAL_ACTION_FINISHED` event.
- 
- @param provider The provider on which the social action has finished
- @param socialActionType The social action which finished
- */
-+ (void)postSocialActionFinished:(Provider)provider withType:(SocialActionType)socialActionType withPayload:(NSString *)payload;
-
-/**
- Called when a generic social action on a provider has been cancelled. Which fires 
- the `EVENT_UP_SOCIAL_ACTION_CANCELLED` event.
- 
- @param provider The provider on which the social action has been cancelled
- @param socialActionType The social action which was cancelled
- */
-+ (void)postSocialActionCancelled:(Provider)provider withType:(SocialActionType)socialActionType withPayload:(NSString *)payload;
-
-/**
- Called when a generic social action on a provider has failed. Which fires the
- `EVENT_UP_SOCIAL_ACTION_FAILED` event.
- 
- @param provider The provider on which the social action has failed
- @param socialActionType The social action which failed
- @param message a Description of the reason for failure
- */
-+ (void)postSocialActionFailed:(Provider)provider withType:(SocialActionType)socialActionType withMessage:(NSString *)message withPayload:(NSString *)payload;
-
-/**
- Called when the get contacts process from a provider has started. Which fires the
- `EVENT_UP_GET_CONTACTS_STARTED` event.
- 
- @param provider The provider on which the get contacts process started
- @param socialActionType The social action which is preformed
- */
-+ (void)postGetContactsStarted:(Provider)provider withType:(SocialActionType)socialActionType withFromStart:(bool)fromStart withPayload:(NSString *)payload;
-
-/**
- Called when the get contacts process from a provider has finished. Which fires the
- `EVENT_UP_GET_CONTACTS_FINISHED` event.
- 
- @param provider The provider on which the get contacts process finished
- @param socialActionType The social action which is preformed
- @param contacts an Array of contacts represented by `UserProfile`
- */
-+ (void)postGetContactsFinished:(Provider)provider withType:(SocialActionType)socialActionType withContacts:(NSArray *)contacts withPayload:(NSString *)payload withHasMore:(bool)hasMore;
-
-/**
- Called when the get contacts process from a provider has failed. Which fires the
- `EVENT_UP_GET_CONTACTS_FAILED` event.
- 
- @param provider The provider on which the get contacts process has
- failed
- @param socialActionType The social action which is preformed
- @param message a Description of the reason for failure
- */
-+ (void)postGetContactsFailed:(Provider)provider withType:(SocialActionType)socialActionType withMessage:(NSString *)message withFromStart:(bool)fromStart withPayload:(NSString *)payload;
-
-/**
- Called when the get feed process from a provider has started. Which fires the
- `EVENT_UP_GET_FEED_STARTED` event.
- 
- @param provider The provider on which the get feed process started
- @param socialActionType The social action which is preformed
- */
-+ (void)postGetFeedStarted:(Provider)provider withType:(SocialActionType)socialActionType withFromStart:(bool)fromStart withPayload:(NSString *)payload;
-
-/**
- Called when the get feed process from a provider has finished. Which fires the
- `EVENT_UP_GET_FEED_FINISHED` event.
- 
- @param provider The provider on which the get feed process finished
- @param socialActionType The social action which is preformed
- @param feeds an Array of feed entries represented by `NSString`
- */
-+ (void)postGetFeedFinished:(Provider)provider withType:(SocialActionType)socialActionType withContacts:(NSArray *)feeds withPayload:(NSString *)payload withHasMore:(bool)hasMore;
-
-/**
- Called when the get feed process from a provider has failed. Which fires the
- `EVENT_UP_GET_FEED_FAILED` event.
- 
- @param provider The provider on which the get feed process has
- failed
- @param socialActionType The social action which is preformed
- @param message a Description of the reason for failure
- */
-+ (void)postGetFeedFailed:(Provider)provider withType:(SocialActionType)socialActionType withMessage:(NSString *)message withFromStart:(bool)fromStart withPayload:(NSString *)payload;
-
 @end

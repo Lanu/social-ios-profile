@@ -1,11 +1,9 @@
 dependencies: \
   /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook/SocialFacebook.m \
   /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/SocialiOSProfileFacebook/SocialFacebook.h \
-  ../../SocialiOSProfile/social/ISocialProvider.h \
   ../../SocialiOSProfile/auth/IAuthProvider.h \
   ../../SocialiOSProfile/UserProfileUtils.h \
   ../../SocialiOSProfile/domain/IProvider.h \
-  ../../SocialiOSProfile/social/SocialCallbacks.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FacebookSDK.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBAccessTokenData.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/social-providers/social-ios-profile-facebook/libs/FacebookSDK.framework/Headers/FBSession.h \

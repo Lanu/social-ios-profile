@@ -16,11 +16,11 @@
 
 #import "SocialProfile.h"
 #import "AuthController.h"
-#import "SocialController.h"
 #import "UserProfileUtils.h"
 #import "ProfileEventHandling.h"
 #import "UserProfileNotFoundException.h"
 #import "UserProfileStorage.h"
+#import "SocialUtils.h"
 
 #import <UIKit/UIKit.h>
 
@@ -28,6 +28,8 @@
 BOOL UsingExternalProvider;
 
 @implementation SocialProfile
+
+static NSString *TAG = @"SOCIAL SOCIALIOSPROFILE";
 
 + (void)usingExternalProvider:(BOOL)isExternal {
     
@@ -45,11 +47,9 @@ BOOL UsingExternalProvider;
 - (void)initialize:(NSDictionary *)customParams {
     if (UsingExternalProvider) {
         authController = [[AuthController alloc] initWithoutLoadingProviders];
-        socialController = [[SocialController alloc] initWithoutLoadingProviders];
     }
     else {
         authController = [[AuthController alloc] initWithParameters:customParams];
-        socialController = [[SocialController alloc] initWithParameters:customParams];
     }
     
     [ProfileEventHandling postProfileInitialized];
@@ -64,9 +64,7 @@ BOOL UsingExternalProvider;
         [authController loginWithProvider:provider andPayload:payload];
     }
     @catch (NSException *exception) {
-
-        // TODO: implement logic like in java that will raise the exception. Currently not raised
-        [socialController loginWithProvider:provider andPayload:payload];
+        LogError(TAG, ([NSString stringWithFormat:@"loginWithProvider error: %@", exception.description]));
     }
 }
 
@@ -75,9 +73,7 @@ BOOL UsingExternalProvider;
         [authController logoutWithProvider:provider];
     }
     @catch (NSException *exception) {
-
-        // TODO: implement logic like in java that will raise the exception. Currently not raised
-        [socialController logoutWithProvider:provider];
+        LogError(TAG, ([NSString stringWithFormat:@"logoutWithProvider error: %@", exception.description]));
     }
 }
 
@@ -86,9 +82,7 @@ BOOL UsingExternalProvider;
         return [authController isLoggedInWithProvider:provider];
     }
     @catch (NSException *exception) {
-        
-        // TODO: implement logic like in java that will raise the exception. Currently not raised
-        return [socialController isLoggedInWithProvider:provider];
+        LogError(TAG, ([NSString stringWithFormat:@"isLoggedInWithProvider error: %@", exception.description]));
     }
 
 }
@@ -99,9 +93,7 @@ BOOL UsingExternalProvider;
 
     }
     @catch (NSException *exception) {
-        
-        // TODO: implement logic like in java that will raise the exception. Currently not raised
-        [socialController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload];
+        LogError(TAG, ([NSString stringWithFormat:@"getAccessTokenWithProvider error: %@", exception.description]));
     }
 }
 
@@ -110,9 +102,7 @@ BOOL UsingExternalProvider;
         return [authController getStoredUserProfileWithProvider:provider];
     }
     @catch (NSException *exception) {
-        
-        // TODO: implement logic like in java that will raise the exception. Currently not raised
-        return [socialController getStoredUserProfileWithProvider:provider];
+        LogError(TAG, ([NSString stringWithFormat:@"getStoredUserProfileWithProvider error: %@", exception.description]));
     }
 }
 
@@ -132,129 +122,12 @@ BOOL UsingExternalProvider;
     return userProfiles;
 }
 
-- (void)updateStatusWithProvider:(Provider)provider andStatus:(NSString *)status andPayload:(NSString *)payload  {
-    [socialController updateStatusWithProvider:provider andStatus:status andPayload:payload];
-}
-
-- (void)updateStatusWithProvider:(Provider)provider andStatus:(NSString *)status {
-    [self updateStatusWithProvider:provider andStatus:status andPayload:@""];
-}
-
-- (void)updateStatusWithProviderDialog:(Provider)provider andLink:(NSString *)link andPayload:(NSString *)payload  {
-    [socialController updateStatusWithProviderDialog:provider andLink:link andPayload:payload];
-}
-
-- (void)updateStatusWithProviderDialog:(Provider)provider andLink:(NSString *)link {
-    [self updateStatusWithProviderDialog:provider andLink:link andPayload:@""];
-}
-
-- (void)updateStoryWithProvider:(Provider)provider
-                     andMessage:(NSString *)message
-                        andName:(NSString *)name
-                     andCaption:(NSString *)caption
-                 andDescription:(NSString *)description
-                        andLink:(NSString *)link
-                     andPicture:(NSString *)picture
-                     andPayload:(NSString *)payload{
-    [socialController updateStoryWithProvider:provider andMessage:message andName:name andCaption:caption
-                               andDescription:description andLink:link andPicture:picture andPayload:payload];
-}
-
-- (void)updateStoryWithProvider:(Provider)provider
-                     andMessage:(NSString *)message
-                        andName:(NSString *)name
-                     andCaption:(NSString *)caption
-                 andDescription:(NSString *)description
-                        andLink:(NSString *)link
-                     andPicture:(NSString *)picture{
-    [self updateStoryWithProvider:provider andMessage:message andName:name andCaption:caption
-                   andDescription:description andLink:link andPicture:picture andPayload:@""];
-}
-
-- (void)updateStoryWithProviderDialog:(Provider)provider
-                                  andName:(NSString *)name
-                               andCaption:(NSString *)caption
-                           andDescription:(NSString *)description
-                                  andLink:(NSString *)link
-                               andPicture:(NSString *)picture
-                           andPayload:(NSString *)payload
-                                 {
-    [socialController updateStoryWithProviderDialog:provider andName:name andCaption:caption
-                               andDescription:description andLink:link andPicture:picture andPayload:payload];
-}
-
-- (void)updateStoryWithProviderDialog:(Provider)provider
-                              andName:(NSString *)name
-                           andCaption:(NSString *)caption
-                       andDescription:(NSString *)description
-                              andLink:(NSString *)link
-                           andPicture:(NSString *)picture{
-    [self updateStoryWithProviderDialog:provider andName:name andCaption:caption
-                   andDescription:description andLink:link andPicture:picture andPayload:@""];
-}
-
-- (void)uploadImageWithProvider:(Provider)provider
-                     andMessage:(NSString *)message
-                    andFilePath:(NSString *)filePath
-                     andPayload:(NSString *)payload {
-    [socialController uploadImageWithProvider:provider andMessage:message andFilePath:filePath andPayload:payload];
-}
-
-- (void)uploadImageWithProvider:(Provider)provider
-                     andMessage:(NSString *)message
-               andImageFileName: (NSString *)fileName
-                   andImageData:(NSData *)imageData
-                     andPayload:(NSString *)payload {
-
-    [socialController uploadImageWithProvider:provider andMessage:message andImageFileName:fileName andImageData:imageData andPayload:payload];
-}
-
-- (void)uploadImageWithProvider:(Provider)provider
-                     andMessage:(NSString *)message
-                    andFilePath:(NSString *)filePath {
-    [self uploadImageWithProvider:provider andMessage:message andFilePath:filePath andPayload:@""];
-}
-
-- (void)getContactsWithProvider:(Provider)provider andPayload:(NSString *)payload  {
-    [socialController getContactsWith:provider andFromStart:false andPayload:payload];
-}
-
-- (void)getContactsWithProvider:(Provider)provider andFromStart: (bool)fromStart andPayload:(NSString *)payload  {
-    [socialController getContactsWith:provider andFromStart:fromStart andPayload:payload];
-}
-
-- (void)getContactsWithProvider:(Provider)provider  {
-    [self getContactsWithProvider:provider andPayload:@""];
-}
-
-- (void)getFeedWithProvider:(Provider)provider andFromStart:(bool)fromStart andPayload:(NSString *)payload  {
-    [socialController getFeedProvider:provider andFromStart:false andPayload:payload];
-}
-
-- (void)getFeedWithProvider:(Provider)provider  {
-    [self getFeedWithProvider:provider andFromStart:NO andPayload:@""];
-}
-
-- (void)like:(Provider)provider andPageId:(NSString *)pageId  {
-    [socialController like:provider andPageId:pageId];
-}
-
-- (void)openAppRatingPage {
-    NSString* templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APP_ID";
-    NSString* appID = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-    NSString* reviewURL = [templateReviewURL stringByReplacingOccurrencesOfString:@"APP_ID" withString:appID];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:reviewURL]];
-    
-    [ProfileEventHandling postUserRating];
-}
-
 - (BOOL)tryHandleOpenURL:(Provider)provider openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [socialController tryHandleOpenURL:provider openURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [authController tryHandleOpenURL:provider openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 - (BOOL)tryHandleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [socialController tryHandleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [authController tryHandleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 // private

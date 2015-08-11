@@ -21,7 +21,6 @@
 #import "ProfileEventHandling.h"
 #import "SocialUtils.h"
 #import "IAuthProvider.h"
-#import "ISocialProvider.h"
 
 
 @implementation ProviderLoader
@@ -97,7 +96,7 @@ static NSString* TAG = @"SOCIAL ProviderLoader";
 
     classes = NULL;
     numClasses = objc_getClassList(NULL, 0);
-    BOOL isSocialProvider = protocol == @protocol(ISocialProvider);
+    BOOL isSocialProvider = protocol == @protocol(IAuthProvider);
 
     if (numClasses > 0 )
     {
@@ -114,12 +113,7 @@ static NSString* TAG = @"SOCIAL ProviderLoader";
                     class_conformsToProtocol(nextClass, @protocol(IAuthProvider))) {
                     [providersArr addObject:NSClassFromString(NSStringFromClass(classes[i]))];
                 }
-            } else {
-                if (class_conformsToProtocol(nextClass, protocol) &&
-                    !class_conformsToProtocol(nextClass, @protocol(ISocialProvider))) {
-                    [providersArr addObject:NSClassFromString(NSStringFromClass(classes[i]))];
-                }
-            }
+            }       
         }
         free(classes);
     }

@@ -14,28 +14,23 @@
 		1A93B0541B0C92F800AA53DD /* ProfileEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB861B0C8E30000037D6 /* ProfileEventHandling.m */; };
 		1A93B0551B0C92F800AA53DD /* PJSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB791B0C8E30000037D6 /* PJSONConsts.m */; };
 		1A93B0561B0C92F800AA53DD /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB7F1B0C8E30000037D6 /* UserProfile.m */; };
-		1A93B0571B0C92F800AA53DD /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB8F1B0C8E30000037D6 /* SocialController.m */; };
 		1A93B0581B0C92F800AA53DD /* UserProfileNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB841B0C8E30000037D6 /* UserProfileNotFoundException.m */; };
 		1A93B0591B0C92F800AA53DD /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB761B0C8E30000037D6 /* AuthController.m */; };
 		1A93B05A1B0C92F800AA53DD /* UserProfileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB951B0C8E30000037D6 /* UserProfileUtils.m */; };
-		1A93B05B1B0C92F800AA53DD /* SocialActionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FBB8D1B0C8E30000037D6 /* SocialActionUtils.m */; };
 		1A93B05D1B0C92F800AA53DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFD6F1B1986E173001360D9 /* UIKit.framework */; };
 		1A93B05E1B0C92F800AA53DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF356EFD193C90560081DCE0 /* Foundation.framework */; };
 		1A93B0611B0C92F800AA53DD /* ProviderNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB811B0C8E30000037D6 /* ProviderNotFoundException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0621B0C92F800AA53DD /* ProfileEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB851B0C8E30000037D6 /* ProfileEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0631B0C92F800AA53DD /* UserProfileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB941B0C8E30000037D6 /* UserProfileUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB781B0C8E30000037D6 /* PJSONConsts.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB781B0C8E30000037D6 /* PJSONConsts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0651B0C92F800AA53DD /* UserProfileNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB831B0C8E30000037D6 /* UserProfileNotFoundException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A93B0661B0C92F800AA53DD /* UserProfileStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7A1B0C8E30000037D6 /* UserProfileStorage.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1A93B0671B0C92F800AA53DD /* ISocialProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB8A1B0C8E30000037D6 /* ISocialProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0661B0C92F800AA53DD /* UserProfileStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7A1B0C8E30000037D6 /* UserProfileStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0681B0C92F800AA53DD /* SocialProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB921B0C8E30000037D6 /* SocialProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A93B0691B0C92F800AA53DD /* IProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7D1B0C8E30000037D6 /* IProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1A93B06B1B0C92F800AA53DD /* SocialController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB8E1B0C8E30000037D6 /* SocialController.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1A93B06C1B0C92F800AA53DD /* SocialActionUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB8C1B0C8E30000037D6 /* SocialActionUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1A93B06D1B0C92F800AA53DD /* IAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB741B0C8E30000037D6 /* IAuthProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B0691B0C92F800AA53DD /* IProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7D1B0C8E30000037D6 /* IProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B06D1B0C92F800AA53DD /* IAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB741B0C8E30000037D6 /* IAuthProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B06E1B0C92F800AA53DD /* UserProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB7E1B0C8E30000037D6 /* UserProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB751B0C8E30000037D6 /* AuthController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB751B0C8E30000037D6 /* AuthController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0771B0C94AD00AA53DD /* SocialProfile.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1A3FBB921B0C8E30000037D6 /* SocialProfile.h */; };
 /* End PBXBuildFile section */
 
@@ -72,12 +67,6 @@
 		1A3FBB861B0C8E30000037D6 /* ProfileEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEventHandling.m; sourceTree = "<group>"; };
 		1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProviderLoader.h; sourceTree = "<group>"; };
 		1A3FBB881B0C8E30000037D6 /* ProviderLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProviderLoader.m; sourceTree = "<group>"; };
-		1A3FBB8A1B0C8E30000037D6 /* ISocialProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISocialProvider.h; sourceTree = "<group>"; };
-		1A3FBB8B1B0C8E30000037D6 /* SocialCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCallbacks.h; sourceTree = "<group>"; };
-		1A3FBB8C1B0C8E30000037D6 /* SocialActionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialActionUtils.h; sourceTree = "<group>"; };
-		1A3FBB8D1B0C8E30000037D6 /* SocialActionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialActionUtils.m; sourceTree = "<group>"; };
-		1A3FBB8E1B0C8E30000037D6 /* SocialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialController.h; sourceTree = "<group>"; };
-		1A3FBB8F1B0C8E30000037D6 /* SocialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialController.m; sourceTree = "<group>"; };
 		1A3FBB901B0C8E30000037D6 /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
 		1A3FBB911B0C8E30000037D6 /* SocialiOSProfile-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocialiOSProfile-Prefix.pch"; sourceTree = "<group>"; };
 		1A3FBB921B0C8E30000037D6 /* SocialProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialProfile.h; sourceTree = "<group>"; };
@@ -117,11 +106,6 @@
 				1A3FBB861B0C8E30000037D6 /* ProfileEventHandling.m */,
 				1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */,
 				1A3FBB881B0C8E30000037D6 /* ProviderLoader.m */,
-				1A3FBB891B0C8E30000037D6 /* social */,
-				1A3FBB8C1B0C8E30000037D6 /* SocialActionUtils.h */,
-				1A3FBB8D1B0C8E30000037D6 /* SocialActionUtils.m */,
-				1A3FBB8E1B0C8E30000037D6 /* SocialController.h */,
-				1A3FBB8F1B0C8E30000037D6 /* SocialController.m */,
 				1A3FBB901B0C8E30000037D6 /* SocialiOSProfile-Info.plist */,
 				1A93B0791B0C976000AA53DD /* Supporting Files */,
 				1A3FBB921B0C8E30000037D6 /* SocialProfile.h */,
@@ -172,15 +156,6 @@
 			path = exceptions;
 			sourceTree = "<group>";
 		};
-		1A3FBB891B0C8E30000037D6 /* social */ = {
-			isa = PBXGroup;
-			children = (
-				1A3FBB8A1B0C8E30000037D6 /* ISocialProvider.h */,
-				1A3FBB8B1B0C8E30000037D6 /* SocialCallbacks.h */,
-			);
-			path = social;
-			sourceTree = "<group>";
-		};
 		1A93B0791B0C976000AA53DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,15 +203,12 @@
 				1A93B06E1B0C92F800AA53DD /* UserProfile.h in Headers */,
 				1A93B0621B0C92F800AA53DD /* ProfileEventHandling.h in Headers */,
 				1A93B0631B0C92F800AA53DD /* UserProfileUtils.h in Headers */,
+				1A93B06D1B0C92F800AA53DD /* IAuthProvider.h in Headers */,
 				1A93B0611B0C92F800AA53DD /* ProviderNotFoundException.h in Headers */,
 				1A93B0651B0C92F800AA53DD /* UserProfileNotFoundException.h in Headers */,
 				1A93B0691B0C92F800AA53DD /* IProvider.h in Headers */,
-				1A93B06D1B0C92F800AA53DD /* IAuthProvider.h in Headers */,
-				1A93B0671B0C92F800AA53DD /* ISocialProvider.h in Headers */,
 				1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */,
 				1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */,
-				1A93B06B1B0C92F800AA53DD /* SocialController.h in Headers */,
-				1A93B06C1B0C92F800AA53DD /* SocialActionUtils.h in Headers */,
 				1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */,
 				1A93B0661B0C92F800AA53DD /* UserProfileStorage.h in Headers */,
 			);
@@ -318,11 +290,9 @@
 				1A93B0541B0C92F800AA53DD /* ProfileEventHandling.m in Sources */,
 				1A93B0551B0C92F800AA53DD /* PJSONConsts.m in Sources */,
 				1A93B0561B0C92F800AA53DD /* UserProfile.m in Sources */,
-				1A93B0571B0C92F800AA53DD /* SocialController.m in Sources */,
 				1A93B0581B0C92F800AA53DD /* UserProfileNotFoundException.m in Sources */,
 				1A93B0591B0C92F800AA53DD /* AuthController.m in Sources */,
 				1A93B05A1B0C92F800AA53DD /* UserProfileUtils.m in Sources */,
-				1A93B05B1B0C92F800AA53DD /* SocialActionUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

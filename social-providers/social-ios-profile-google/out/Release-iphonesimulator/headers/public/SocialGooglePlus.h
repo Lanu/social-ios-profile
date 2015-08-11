@@ -14,15 +14,17 @@
  limitations under the License.
  */
 
-#import "ISocialProvider.h"
-#import <GooglePlus/GooglePlus.h>
+#import "IAuthProvider.h"
+#import <GoogleSignIn/GoogleSignIn.h>
 
-@interface SocialGooglePlus : NSObject<ISocialProvider, GPPSignInDelegate, GPPShareDelegate>{
+@interface SocialGooglePlus : NSObject<IAuthProvider, GIDSignInDelegate, GIDSignInUIDelegate>{
     loginSuccess loginSuccess;
     loginFail loginFail;
     loginCancel loginCancel;
     logoutSuccess logoutSuccess;
     logoutFail logoutFail;
+    userProfileSuccess userProfileSuccess;
+    userProfileFail userProfileFail;
 }
 
 @property (strong, nonatomic) loginSuccess loginSuccess;
@@ -30,8 +32,8 @@
 @property (strong, nonatomic) loginCancel loginCancel;
 @property (strong, nonatomic) logoutSuccess logoutSuccess;
 @property (strong, nonatomic) logoutFail logoutFail;
-@property (strong, nonatomic) socialActionSuccess socialActionSuccess;
-@property (strong, nonatomic) socialActionFail socialActionFail;
+@property (strong, nonatomic) userProfileSuccess userProfileSuccess;
+@property (strong, nonatomic) userProfileFail userProfileFail;
 @property (strong, nonatomic, readonly) NSString *clientId;
 
 @end

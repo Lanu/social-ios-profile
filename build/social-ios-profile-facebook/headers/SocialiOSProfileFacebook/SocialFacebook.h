@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#import "ISocialProvider.h"
+#import "IAuthProvider.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -27,7 +27,7 @@
  to reward your users with coins (or any other virtual items) in exchange 
  for social actions they perform.
  */
-@interface SocialFacebook : NSObject <ISocialProvider> {
+@interface SocialFacebook : NSObject <IAuthProvider> {
     loginSuccess loginSuccess;
     loginFail loginFail;
     loginCancel loginCancel;

@@ -12,8 +12,6 @@
 		1AF2E1151B0CB50700FD2B69 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AF2E1141B0CB50700FD2B69 /* Info.plist */; };
 		32CDBD0D1A0A9528001DF8A1 /* libSocialiOSProfileGoogle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD011A0A9528001DF8A1 /* libSocialiOSProfileGoogle.a */; };
 		32CDBD321A0AA13E001DF8A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD311A0AA13E001DF8A1 /* Foundation.framework */; };
-		32CDBD341A0AA15B001DF8A1 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD331A0AA15B001DF8A1 /* GoogleOpenSource.framework */; };
-		32CDBD361A0AA168001DF8A1 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD351A0AA168001DF8A1 /* GooglePlus.framework */; };
 		32CDBD381A0AA17F001DF8A1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD371A0AA17F001DF8A1 /* AddressBook.framework */; };
 		32CDBD3A1A0AA187001DF8A1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD391A0AA187001DF8A1 /* AssetsLibrary.framework */; };
 		32CDBD3C1A0AA197001DF8A1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD3B1A0AA197001DF8A1 /* CoreLocation.framework */; };
@@ -24,6 +22,7 @@
 		32CDBD461A0AA1B9001DF8A1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD451A0AA1B9001DF8A1 /* Security.framework */; };
 		32CDBD481A0AA1C2001DF8A1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD471A0AA1C2001DF8A1 /* SystemConfiguration.framework */; };
 		32CDBD4A1A0AA1CA001DF8A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CDBD491A0AA1CA001DF8A1 /* UIKit.framework */; };
+		3FA4E7441B78FCD80072E342 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA4E7431B78FCD80072E342 /* GoogleSignIn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -68,8 +67,6 @@
 		32CDBD011A0A9528001DF8A1 /* libSocialiOSProfileGoogle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocialiOSProfileGoogle.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CDBD0C1A0A9528001DF8A1 /* SocialiOSProfileGoogle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialiOSProfileGoogle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CDBD311A0AA13E001DF8A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		32CDBD331A0AA15B001DF8A1 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = libs/GoogleOpenSource.framework; sourceTree = "<group>"; };
-		32CDBD351A0AA168001DF8A1 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = libs/GooglePlus.framework; sourceTree = "<group>"; };
 		32CDBD371A0AA17F001DF8A1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		32CDBD391A0AA187001DF8A1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		32CDBD3B1A0AA197001DF8A1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -80,6 +77,7 @@
 		32CDBD451A0AA1B9001DF8A1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		32CDBD471A0AA1C2001DF8A1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		32CDBD491A0AA1CA001DF8A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3FA4E7431B78FCD80072E342 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = libs/GoogleSignIn.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32CDBD361A0AA168001DF8A1 /* GooglePlus.framework in Frameworks */,
-				32CDBD341A0AA15B001DF8A1 /* GoogleOpenSource.framework in Frameworks */,
+				3FA4E7441B78FCD80072E342 /* GoogleSignIn.framework in Frameworks */,
 				32CDBD4A1A0AA1CA001DF8A1 /* UIKit.framework in Frameworks */,
 				32CDBD481A0AA1C2001DF8A1 /* SystemConfiguration.framework in Frameworks */,
 				32CDBD461A0AA1B9001DF8A1 /* Security.framework in Frameworks */,
@@ -117,6 +114,7 @@
 		32CDBCF81A0A9528001DF8A1 = {
 			isa = PBXGroup;
 			children = (
+				3FA4E7431B78FCD80072E342 /* GoogleSignIn.framework */,
 				32CDBD491A0AA1CA001DF8A1 /* UIKit.framework */,
 				32CDBD471A0AA1C2001DF8A1 /* SystemConfiguration.framework */,
 				32CDBD451A0AA1B9001DF8A1 /* Security.framework */,
@@ -127,8 +125,6 @@
 				32CDBD3B1A0AA197001DF8A1 /* CoreLocation.framework */,
 				32CDBD391A0AA187001DF8A1 /* AssetsLibrary.framework */,
 				32CDBD371A0AA17F001DF8A1 /* AddressBook.framework */,
-				32CDBD351A0AA168001DF8A1 /* GooglePlus.framework */,
-				32CDBD331A0AA15B001DF8A1 /* GoogleOpenSource.framework */,
 				32CDBD311A0AA13E001DF8A1 /* Foundation.framework */,
 				32CDBD031A0A9528001DF8A1 /* SocialiOSProfileGoogle */,
 				32CDBD101A0A9528001DF8A1 /* SoomlaiOSProfileGoogleTests */,
