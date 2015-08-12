@@ -84,13 +84,11 @@ static NSString *TAG = @"SOCIAL SOCIALIOSPROFILE";
     @catch (NSException *exception) {
         LogError(TAG, ([NSString stringWithFormat:@"isLoggedInWithProvider error: %@", exception.description]));
     }
-
 }
 
 - (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
     @try {
         [authController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload];
-
     }
     @catch (NSException *exception) {
         LogError(TAG, ([NSString stringWithFormat:@"getAccessTokenWithProvider error: %@", exception.description]));
