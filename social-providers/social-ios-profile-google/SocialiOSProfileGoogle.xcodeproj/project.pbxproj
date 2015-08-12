@@ -420,6 +420,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs",
 				);
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREFIX_HEADER = SocialiOSProfileGoogle/SocialiOSProfileGoogle.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

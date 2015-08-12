@@ -66,6 +66,7 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 }
 
 - (void)startGooglePlusAuth{
+    LogDebug(TAG,@"startGooglePlusAuth");
     GIDSignIn *signIn = [GIDSignIn sharedInstance];
     //NSArray* scopes = [NSArray arrayWithObjects:kGTLAuthScopePlusLogin,kGTLAuthScopePlusUserinfoProfile, nil];
     
@@ -84,6 +85,7 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
+    LogDebug(TAG,@"signIn: didSignInForUser: withError:");
     if (error) {
         if ([error code] == -1)
             self.loginCancel();
@@ -97,13 +99,15 @@ didSignInForUser:(GIDGoogleUser *)user
 - (void)signIn:(GIDSignIn *)signIn
 didDisconnectWithUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
+    LogDebug(TAG,@"signIn: didDisconnectWithUser: withError:");
     if (error) {
          self.logoutFail([error localizedDescription]);
     } else {
         [self clearLoginBlocks];
+        [self clearUserProfileBlocks];
         self.logoutSuccess();
+        [self reportAuthStatus];
     }
-    [self reportAuthStatus];
 }
 
 /** Google Sign-In SDK
@@ -111,6 +115,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
  */
 - (void)signIn:(GIDSignIn *)signIn
 presentViewController:(UIViewController *)viewController {
+    LogDebug(TAG,@"signIn: presentViewController:");
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     [rootViewController presentViewController:viewController animated:YES completion:nil];
 }
@@ -120,6 +125,7 @@ presentViewController:(UIViewController *)viewController {
  */
 - (void)signIn:(GIDSignIn *)signIn
 dismissViewController:(UIViewController *)viewController {
+    LogDebug(TAG,@"signIn: dismissViewController:");
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     [rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -127,32 +133,64 @@ dismissViewController:(UIViewController *)viewController {
 #pragma mark - Helper methods
 
 - (void)reportAuthStatus {
+    LogDebug(TAG,@"reportAuthStatus");
     GIDGoogleUser *googleUser = [[GIDSignIn sharedInstance] currentUser];
-    if (googleUser.authentication) {
+    if (googleUser.authentication != nil) {
         self.loginSuccess(GOOGLE);
     } else {
-        [self clearLoginBlocks];
         self.loginFail(@"GooglePlus Authentication failed.");
+        [self clearLoginBlocks];
+        [self clearUserProfileBlocks];
     }
 }
 
 // Update the interface elements containing user data to reflect the
 // currently signed in user.
 - (void)refreshUserInfo {
-    if ([GIDSignIn sharedInstance].currentUser.authentication == nil) {
+    LogDebug(TAG,@"refreshUserInfo");
+    GIDGoogleUser *googleUser = [[GIDSignIn sharedInstance] currentUser];
+    if (googleUser.authentication != nil) {
+        LogDebug(TAG,@"parseGoogleContact");
+        NSString* displayName = googleUser.profile.name;
+        NSString* firstName, *lastName;
+
+        if (displayName)
+        {
+            NSArray *names = [displayName componentsSeparatedByString:@" "];
+            if (names && ([names count] > 0)) {
+                firstName = names[0];
+                if ([names count] > 1) {
+                    lastName = names[1];
+                }
+            }
+        }
+  
+        UserProfile * userProfile = [[UserProfile alloc] initWithProvider:GOOGLE
+                                                             andProfileId:googleUser.userID
+                                                              andUsername:@""
+                                                                 andEmail:googleUser.profile.email
+                                                             andFirstName:firstName
+                                                              andLastName:lastName];
+        
+        if (googleUser.profile.hasImage)
+        {
+            NSUInteger dimension = round(50 * 50);
+            NSURL *imageURL = [googleUser.profile imageURLWithDimension:dimension];
+            userProfile.username = @"";
+            userProfile.avatarLink = [imageURL absoluteString];
+        }
+        
+        self.userProfileSuccess(userProfile);
+    }else{
         LogError(TAG, @"Failed getting user profile");
         self.userProfileFail(@"Failed getting user profile");
         return;
     }
-    
-    UserProfile *userProfile = [self parseGoogleContact:[GIDSignIn sharedInstance].currentUser];
-    self.userProfileSuccess(userProfile);
-
 }
 
 - (void)getUserProfile:(userProfileSuccess)success fail:(userProfileFail)fail{
     LogDebug(TAG, @"getUserProfile");
-    
+    [self setUserProfileBlocks:success fail:fail];
     [self refreshUserInfo];
 }
 
@@ -167,8 +205,9 @@ dismissViewController:(UIViewController *)viewController {
     LogDebug(TAG, @"getAccessToken");
 
     if ([self isLoggedIn]) {
-        NSString *oauth = [GIDSignIn sharedInstance].currentUser.authentication.accessToken;
-        success(oauth);
+        //NSString *accessToken = GIDSignIn.sharedInstance.currentUser.authentication.accessToken;
+        NSString *accessToken = [[GIDSignIn sharedInstance] currentUser].authentication.accessToken;
+        success(accessToken);
     } else {
         fail(@"Get access token failed");
     }
@@ -177,7 +216,7 @@ dismissViewController:(UIViewController *)viewController {
 
 - (BOOL)isLoggedIn{
     LogDebug(TAG, @"isLoggedIn");
-    return ([GIDSignIn sharedInstance].currentUser.authentication != nil);
+    return ([[GIDSignIn sharedInstance] currentUser].authentication != nil);
 }
 
 - (BOOL)tryHandleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
@@ -188,42 +227,6 @@ dismissViewController:(UIViewController *)viewController {
 
 - (Provider)getProvider {
     return GOOGLE;
-}
-
--(UserProfile *) parseGoogleContact: (GIDGoogleUser *)googleContact{
-    NSString* displayName = googleContact.profile.name;
-    NSString* firstName, *lastName;
-    
-    if (displayName)
-    {
-        NSArray *names = [displayName componentsSeparatedByString:@" "];
-        if (names && ([names count] > 0)) {
-            firstName = names[0];
-            if ([names count] > 1) {
-                lastName = names[1];
-            }
-        }
-    }
-    
-    UserProfile * profile =
-    [[UserProfile alloc] initWithProvider:GOOGLE
-                             andProfileId:googleContact.userID
-                              andUsername: @""
-                                 andEmail:googleContact.profile.email
-                             andFirstName:firstName
-                              andLastName:lastName];
-    
-    if (![GIDSignIn sharedInstance].currentUser.profile.hasImage) {
-        // There is no Profile Image to be loaded.
-        return profile;
-    }
-    NSUInteger dimension = round(50 * 50);
-    NSURL *imageURL = [[GIDSignIn sharedInstance].currentUser.profile imageURLWithDimension:dimension];
-    
-    profile.username = @"";
-    profile.avatarLink = [imageURL absoluteString];
-    
-    return profile;
 }
 
 -(void)setLoginBlocks:(loginSuccess)success fail:(loginFail)fail cancel:(loginCancel)cancel{
@@ -237,6 +240,15 @@ dismissViewController:(UIViewController *)viewController {
     self.loginFail = nil;
     self.loginCancel = nil;
 }
+
+-(void)setUserProfileBlocks:(userProfileSuccess)success fail:(userProfileFail)fail{
+    self.userProfileSuccess = success;
+    self.userProfileFail = fail;
+}
+
+- (void)clearUserProfileBlocks {
+    self.userProfileSuccess = nil;
+    self.userProfileFail = nil;}
 
 - (NSString *)checkAuthParams{
     if (!clientId)
