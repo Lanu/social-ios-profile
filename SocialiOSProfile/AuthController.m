@@ -114,8 +114,8 @@ static NSString* TAG = @"SOCIAL AuthController";
     // TODO: Check if need to change any nonatomic properties
     //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [authProvider getAccessToken:^(NSString *accessToken) {
-            [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
             [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
+            [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
         } fail:^(NSString *message) {
             [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
         } cancel:^{
