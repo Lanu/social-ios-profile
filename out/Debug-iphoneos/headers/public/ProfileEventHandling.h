@@ -17,10 +17,12 @@
 #import "UserProfileUtils.h"
 
 @class UserProfile;
+@class TokenProvider;
 // Events
 #define EVENT_UP_PROFILE_INITIALIZED            @"up_profile_initialized"
 
 #define EVENT_UP_USER_PROFILE_UPDATED           @"up_user_profile_updated"
+#define EVENT_UP_TOKEN_PROVIDER_UPDATED         @"up_token_provider_updated"
 
 #define EVENT_UP_LOGIN_STARTED                  @"up_login_started"
 #define EVENT_UP_LOGIN_FINISHED                 @"up_login_finished"
@@ -44,6 +46,7 @@
 #define DICT_ELEMENT_HAS_MORE                   @"hasMore"
 #define DICT_ELEMENT_MESSAGE                    @"message"
 #define DICT_ELEMENT_ACCESSTOKEN                @"accessToken"
+#define DICT_ELEMENT_TOKEN_PROVIDER             @"tokenProvider"
 
 /**
  * This class is used to register and post all the supported profile events.
@@ -75,6 +78,15 @@ Called when the service has been initializedt.
  @param userProfile The user's profile which was updated
  */
 + (void)postUserProfileUpdated:(UserProfile *)userProfile;
+
+/**
+ Called when a token provider from a provider has been retrieved
+ and updated in the device's local storage. Which fires the
+ `EVENT_UP_TOKEN_PROVIDER_UPDATED` event.
+ 
+ @param tokenProvider The token provider which was updated
+ */
++ (void)postTokenProviderUpdated:(TokenProvider *)tokenProvider;
 
 /**
  Called when the login process to a provider has started. Which fires the

@@ -18,6 +18,7 @@
 
 @class UserProfile;
 @class AuthController;
+@class TokenProvider;
 
 /**
  This is the main class for the SOCIAL User Profile module.  This class should be initialized once,
@@ -89,7 +90,6 @@
  */
 - (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
 
-
 /**
  Fetches the user's profile for the given provider from the local device storage
 
@@ -104,6 +104,21 @@
  @return an Array of `UserProfile`s which have been stored on the device
  */
 - (NSArray *)getStoredUserProfiles;
+
+/**
+ Fetches the TokenProvider for the given provider from the local device storage
+ 
+ @param provider The provider to use
+ @return The TokenProvider
+ */
+- (TokenProvider *)getStoredTokenProviderWithProvider:(Provider)provider;
+
+/**
+ Retrives TokenProviders which are stored on the device
+ 
+ @return an Array of `TokenProvider`s which have been stored on the device
+ */
+- (NSArray *)getStoredTokenProviders;
 
 /**
  Helper method to assist with browser-based authentication using a sepcific

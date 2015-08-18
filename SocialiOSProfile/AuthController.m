@@ -21,6 +21,9 @@
 #import "ProfileEventHandling.h"
 #import "IAuthProvider.h"
 #import "SocialUtils.h"
+#import "TokenProvider.h"
+#import "TokenProviderStorage.h"
+#import "TokenProviderNotFoundException.h"
 
 @implementation AuthController
 
@@ -77,9 +80,11 @@ static NSString* TAG = @"SOCIAL AuthController";
     
     id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];
     UserProfile* userProfile = nil;
+    TokenProvider* tokenProvider = nil;
     
     @try {
         userProfile = [self getStoredUserProfileWithProvider:provider];
+        tokenProvider = [self getStoredTokenProviderWithProvider:provider];
     }
     @catch (NSException *ex) {
         LogError(TAG, ([NSString stringWithFormat:@"%@", [ex callStackSymbols]]));
@@ -90,6 +95,7 @@ static NSString* TAG = @"SOCIAL AuthController";
     [authProvider logout:^() {
         if (userProfile) {
             [UserProfileStorage removeUserProfile:userProfile];
+            [TokenProviderStorage removeTokenProvider:tokenProvider];
             [ProfileEventHandling postLogoutFinished:provider];
         }
     }
@@ -111,8 +117,9 @@ static NSString* TAG = @"SOCIAL AuthController";
     // Perform get access token process
     // TODO: Check if need to change any nonatomic properties
     //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [authProvider getAccessToken:^(NSString *accessToken) {
-            [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
+        [authProvider getAccessToken:^(TokenProvider *tokenProvider) {
+            [TokenProviderStorage setTokenProvider:tokenProvider];
+            [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:tokenProvider.accessToken withPayload:payload];
         } fail:^(NSString *message) {
             [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
         } cancel:^{
@@ -128,6 +135,15 @@ static NSString* TAG = @"SOCIAL AuthController";
     }
     return userProfile;
 }
+
+- (TokenProvider *)getStoredTokenProviderWithProvider:(Provider)provider {
+    TokenProvider* tokenProvider = [TokenProviderStorage getTokenProvider:provider];
+    if (!tokenProvider) {
+        @throw [[TokenProviderNotFoundException alloc] init];
+    }
+    return tokenProvider;
+}
+
 
 - (BOOL)tryHandleOpenURL:(Provider)provider openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];

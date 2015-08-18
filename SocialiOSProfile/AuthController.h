@@ -18,6 +18,7 @@
 #import "UserProfileUtils.h"
 
 @class UserProfile;
+@class TokenProvider;
 
 /**
  A class that loads all authentication providers and performs authentication
@@ -85,6 +86,16 @@
  @exception ProviderNotFoundException if the provider is not supported
  */
 - (UserProfile *)getStoredUserProfileWithProvider:(Provider)provider;
+
+/**
+ Fetches the TokenProvider for the given provider from the device's storage.
+ 
+ @param provider
+ @return The TokenProvider for the given provider
+ @exception ProviderNotFoundException if the provider is not supported
+ */
+- (TokenProvider *)getStoredTokenProviderWithProvider:(Provider)provider;
+
 
 /**
  Helper method to assist with browser-based authentication using a sepcific
