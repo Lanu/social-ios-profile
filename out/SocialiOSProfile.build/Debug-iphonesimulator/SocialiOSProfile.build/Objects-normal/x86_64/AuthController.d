@@ -10,6 +10,4 @@ dependencies: \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/ProfileEventHandling.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/auth/IAuthProvider.h \
   submodules/social-ios-core/SocialiOSCore/SocialUtils.h \
-  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/domain/TokenProvider.h \
-  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/data/TokenProviderStorage.h \
-  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/TokenProviderNotFoundException.h
+  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/data/AccessTokenStorage.h

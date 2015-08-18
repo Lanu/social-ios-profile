@@ -27,4 +27,3 @@ extern NSString *const UP_LOCATION;
 extern NSString *const UP_GENDER;
 extern NSString *const UP_LANGUAGE;
 extern NSString *const UP_BIRTHDAY;
-extern NSString *const UP_ACCESS_TOKEN;

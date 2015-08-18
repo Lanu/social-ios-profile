@@ -16,7 +16,6 @@
 
 #import "ProfileEventHandling.h"
 #import "UserProfile.h"
-#import "TokenProvider.h"
 
 
 @implementation ProfileEventHandling
@@ -24,7 +23,7 @@
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector {
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_PROFILE_INITIALIZED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_USER_PROFILE_UPDATED object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_TOKEN_PROVIDER_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_ACCESS_TOKEN_UPDATED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_LOGIN_STARTED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_LOGIN_FINISHED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_UP_LOGIN_CANCELLED object:nil];
@@ -47,9 +46,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_USER_PROFILE_UPDATED object:self userInfo:userInfo];
 }
 
-+ (void)postTokenProviderUpdated:(TokenProvider *)tokenProvider {
-    NSDictionary *userInfo = @{DICT_ELEMENT_TOKEN_PROVIDER: tokenProvider};
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_TOKEN_PROVIDER_UPDATED object:self userInfo:userInfo];
++ (void)postAccessTokenUpdated:(Provider)provider andAccessToken:(NSString *)accessToken {
+    NSDictionary *userInfo = @{DICT_ELEMENT_PROVIDER: @(provider), DICT_ELEMENT_ACCESSTOKEN: accessToken};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UP_ACCESS_TOKEN_UPDATED object:self userInfo:userInfo];
 }
 
 + (void)postLoginStarted:(Provider)provider withPayload:(NSString *)payload {

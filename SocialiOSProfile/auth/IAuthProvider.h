@@ -18,7 +18,6 @@
 #import "IProvider.h"
 
 @class UserProfile;
-@class TokenProvider;
 
 // Define block signatures for authentication callbacks
 
@@ -29,7 +28,7 @@ typedef void (^userProfileSuccess)(UserProfile* userProfile);
 typedef void (^userProfileFail)(NSString* message);
 typedef void (^logoutSuccess)();
 typedef void (^logoutFail)(NSString* message);
-typedef void (^accessTokenSuccess)(TokenProvider* tokenProvider);
+typedef void (^accessTokenSuccess)(NSString* accessToken);
 typedef void (^accessTokenFail)(NSString* message);
 typedef void (^accessTokenCancel)();
 

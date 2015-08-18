@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>08FA6824-6F94-4058-A936-DE197DB2355A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>SocialiOSProfile</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>874AD2733F9788B31A1EFDD50C49D2023F33A4D4</key>
 		<string>https://github.com/Lanu/social-ios-profile.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SocialiOSProfile.xcodeproj</string>
+	<string>SocialiOSProfile.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>874AD2733F9788B31A1EFDD50C49D2023F33A4D4</key>

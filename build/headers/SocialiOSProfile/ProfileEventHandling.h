@@ -21,6 +21,7 @@
 #define EVENT_UP_PROFILE_INITIALIZED            @"up_profile_initialized"
 
 #define EVENT_UP_USER_PROFILE_UPDATED           @"up_user_profile_updated"
+#define EVENT_UP_ACCESS_TOKEN_UPDATED         @"up_access_token_updated"
 
 #define EVENT_UP_LOGIN_STARTED                  @"up_login_started"
 #define EVENT_UP_LOGIN_FINISHED                 @"up_login_finished"
@@ -75,6 +76,16 @@ Called when the service has been initializedt.
  @param userProfile The user's profile which was updated
  */
 + (void)postUserProfileUpdated:(UserProfile *)userProfile;
+
+/**
+ Called when a Access token from a provider has been retrieved
+ and updated in the device's local storage. Which fires the
+ `EVENT_UP_ACCESS_TOKEN_UPDATED` event.
+ 
+ * @param provider The provider whose access token got updated.
+ * @param accessToken The new access token.
+ */
++ (void)postAccessTokenUpdated:(Provider)provider andAccessToken:(NSString *)accessToken;
 
 /**
  Called when the login process to a provider has started. Which fires the

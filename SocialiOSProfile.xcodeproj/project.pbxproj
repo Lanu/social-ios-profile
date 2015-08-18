@@ -32,9 +32,8 @@
 		1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB751B0C8E30000037D6 /* AuthController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0771B0C94AD00AA53DD /* SocialProfile.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1A3FBB921B0C8E30000037D6 /* SocialProfile.h */; };
-		3F60F5271B831CB900A3B330 /* TokenProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F60F5261B831CB900A3B330 /* TokenProvider.m */; };
-		3F60F52B1B831EC900A3B330 /* TokenProviderStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F60F52A1B831EC900A3B330 /* TokenProviderStorage.m */; };
-		3F60F52D1B83225A00A3B330 /* TokenProviderNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F60F52C1B83225A00A3B330 /* TokenProviderNotFoundException.m */; };
+		3FCFB5821B8366B200BC3BC2 /* AccessTokenStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFB5811B8366B200BC3BC2 /* AccessTokenStorage.m */; };
+		3FCFB5831B836C6C00BC3BC2 /* AccessTokenStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FCFB5801B8366A900BC3BC2 /* AccessTokenStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,12 +78,8 @@
 		1A93B0761B0C92F800AA53DD /* libSocialiOSProfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocialiOSProfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98BB951B0F5B09006E7C97 /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
 		3AFD6F1B1986E173001360D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		3F60F5261B831CB900A3B330 /* TokenProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenProvider.m; sourceTree = "<group>"; };
-		3F60F5281B831CC200A3B330 /* TokenProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenProvider.h; sourceTree = "<group>"; };
-		3F60F5291B831EC000A3B330 /* TokenProviderStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenProviderStorage.h; sourceTree = "<group>"; };
-		3F60F52A1B831EC900A3B330 /* TokenProviderStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenProviderStorage.m; sourceTree = "<group>"; };
-		3F60F52C1B83225A00A3B330 /* TokenProviderNotFoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenProviderNotFoundException.m; sourceTree = "<group>"; };
-		3F60F52E1B83226200A3B330 /* TokenProviderNotFoundException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenProviderNotFoundException.h; sourceTree = "<group>"; };
+		3FCFB5801B8366A900BC3BC2 /* AccessTokenStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessTokenStorage.h; sourceTree = "<group>"; };
+		3FCFB5811B8366B200BC3BC2 /* AccessTokenStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessTokenStorage.m; sourceTree = "<group>"; };
 		EF356EFD193C90560081DCE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF356F0B193C90560081DCE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -140,8 +135,8 @@
 				1A3FBB791B0C8E30000037D6 /* PJSONConsts.m */,
 				1A3FBB7A1B0C8E30000037D6 /* UserProfileStorage.h */,
 				1A3FBB7B1B0C8E30000037D6 /* UserProfileStorage.m */,
-				3F60F5291B831EC000A3B330 /* TokenProviderStorage.h */,
-				3F60F52A1B831EC900A3B330 /* TokenProviderStorage.m */,
+				3FCFB5801B8366A900BC3BC2 /* AccessTokenStorage.h */,
+				3FCFB5811B8366B200BC3BC2 /* AccessTokenStorage.m */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -152,8 +147,6 @@
 				1A3FBB7D1B0C8E30000037D6 /* IProvider.h */,
 				1A3FBB7E1B0C8E30000037D6 /* UserProfile.h */,
 				1A3FBB7F1B0C8E30000037D6 /* UserProfile.m */,
-				3F60F5281B831CC200A3B330 /* TokenProvider.h */,
-				3F60F5261B831CB900A3B330 /* TokenProvider.m */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -165,8 +158,6 @@
 				1A3FBB821B0C8E30000037D6 /* ProviderNotFoundException.m */,
 				1A3FBB831B0C8E30000037D6 /* UserProfileNotFoundException.h */,
 				1A3FBB841B0C8E30000037D6 /* UserProfileNotFoundException.m */,
-				3F60F52E1B83226200A3B330 /* TokenProviderNotFoundException.h */,
-				3F60F52C1B83225A00A3B330 /* TokenProviderNotFoundException.m */,
 			);
 			path = exceptions;
 			sourceTree = "<group>";
@@ -225,6 +216,7 @@
 				1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */,
 				1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */,
 				1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */,
+				3FCFB5831B836C6C00BC3BC2 /* AccessTokenStorage.h in Headers */,
 				1A93B0661B0C92F800AA53DD /* UserProfileStorage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,16 +292,14 @@
 			files = (
 				1A93B0501B0C92F800AA53DD /* SocialProfile.m in Sources */,
 				1A93B0511B0C92F800AA53DD /* UserProfileStorage.m in Sources */,
-				3F60F5271B831CB900A3B330 /* TokenProvider.m in Sources */,
 				1A93B0521B0C92F800AA53DD /* ProviderLoader.m in Sources */,
 				1A93B0531B0C92F800AA53DD /* ProviderNotFoundException.m in Sources */,
-				3F60F52D1B83225A00A3B330 /* TokenProviderNotFoundException.m in Sources */,
 				1A93B0541B0C92F800AA53DD /* ProfileEventHandling.m in Sources */,
 				1A93B0551B0C92F800AA53DD /* PJSONConsts.m in Sources */,
 				1A93B0561B0C92F800AA53DD /* UserProfile.m in Sources */,
 				1A93B0581B0C92F800AA53DD /* UserProfileNotFoundException.m in Sources */,
+				3FCFB5821B8366B200BC3BC2 /* AccessTokenStorage.m in Sources */,
 				1A93B0591B0C92F800AA53DD /* AuthController.m in Sources */,
-				3F60F52B1B831EC900A3B330 /* TokenProviderStorage.m in Sources */,
 				1A93B05A1B0C92F800AA53DD /* UserProfileUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

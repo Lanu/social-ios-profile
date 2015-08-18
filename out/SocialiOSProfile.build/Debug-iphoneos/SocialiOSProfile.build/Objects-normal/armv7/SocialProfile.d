@@ -9,5 +9,4 @@ dependencies: \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/UserProfileNotFoundException.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/data/UserProfileStorage.h \
   submodules/social-ios-core/SocialiOSCore/SocialUtils.h \
-  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/data/TokenProviderStorage.h \
-  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/TokenProviderNotFoundException.h
+  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/data/AccessTokenStorage.h

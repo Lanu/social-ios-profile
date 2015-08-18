@@ -27,4 +27,3 @@ NSString *const UP_LOCATION         = @"location";
 NSString *const UP_GENDER           = @"gender";
 NSString *const UP_LANGUAGE         = @"language";
 NSString *const UP_BIRTHDAY         = @"birthday";
-NSString *const UP_ACCESS_TOKEN     = @"accessToken";

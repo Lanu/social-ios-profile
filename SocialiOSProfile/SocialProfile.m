@@ -21,8 +21,7 @@
 #import "UserProfileNotFoundException.h"
 #import "UserProfileStorage.h"
 #import "SocialUtils.h"
-#import "TokenProviderStorage.h"
-#import "TokenProviderNotFoundException.h"
+#import "AccessTokenStorage.h"
 
 #import <UIKit/UIKit.h>
 
@@ -120,32 +119,6 @@ static NSString *TAG = @"SOCIAL SOCIALIOSPROFILE";
         }
     }
     return userProfiles;
-}
-
-
-- (TokenProvider *)getStoredTokenProviderWithProvider:(Provider)provider {
-    @try {
-        return [authController getStoredTokenProviderWithProvider:provider];
-    }
-    @catch (NSException *exception) {
-        LogError(TAG, ([NSString stringWithFormat:@"getStoredTokenProviderWithProvider error: %@", exception.description]));
-    }
-}
-
-- (NSArray *)getStoredTokenProviders {
-    NSArray* providers = [UserProfileUtils availableProviders];
-    NSMutableArray* tokenProviders = [NSMutableArray array];
-    for(NSNumber* providerNum in providers) {
-        @try {
-            TokenProvider* tokenProvider = [TokenProviderStorage getTokenProvider:(Provider)[providerNum intValue]];
-            if (tokenProvider) {
-                [tokenProviders addObject:tokenProvider];
-            }
-        }@catch (NSException *exception) {
-            // Skip
-        }
-    }
-    return tokenProviders;
 }
 
 - (BOOL)tryHandleOpenURL:(Provider)provider openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {

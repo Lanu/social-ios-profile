@@ -30,7 +30,7 @@
  
  @param tokenProvider the TokenProvider to remove
  */
-+ (void)removeTokenProvider:(TokenProvider *)tokenProvider;
++ (void)removeTokenProvider:(Provider)provider;
 
 /**
  Fetches the TokenProvider stored for the given provider

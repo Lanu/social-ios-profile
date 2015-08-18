@@ -89,7 +89,6 @@
  */
 - (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
 
-
 /**
  Fetches the user's profile for the given provider from the local device storage
 

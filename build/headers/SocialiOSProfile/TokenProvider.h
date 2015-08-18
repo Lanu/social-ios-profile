@@ -16,12 +16,10 @@
 @private
     
     Provider provider;
-    NSString* profileId;
     NSString* accessToken;
 }
 
 @property (readonly, nonatomic) Provider provider;
-@property (strong, nonatomic) NSString* profileId;
 @property (strong, nonatomic) NSString* accessToken;
 
 /**
@@ -32,7 +30,6 @@
  @param oAccessToken the access token given by the provider
  */
 - (id)initWithProvider:(Provider)oProvider
-          andProfileId:(NSString *)oProfileId
            andAccessToken:(NSString *)oAccessToken;
 
 /**
