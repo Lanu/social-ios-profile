@@ -92,7 +92,9 @@ static NSString* TAG = @"SOCIAL AuthController";
         if (userProfile) {
             [UserProfileStorage removeUserProfile:userProfile];
         }
-        [AccessTokenStorage removeAccessToken:provider];
+        if (provider == GOOGLE) {
+            [AccessTokenStorage removeAccessToken:provider];
+        }
         [ProfileEventHandling postLogoutFinished:provider];
     }
     fail:^(NSString* message) {
@@ -115,7 +117,9 @@ static NSString* TAG = @"SOCIAL AuthController";
     //[[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [authProvider getAccessToken:^(NSString *accessToken) {
             [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
-            [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
+            if (provider == GOOGLE) {
+                [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
+            }
         } fail:^(NSString *message) {
             [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
         } cancel:^{
