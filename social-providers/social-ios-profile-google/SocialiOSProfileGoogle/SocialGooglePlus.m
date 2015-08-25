@@ -106,7 +106,6 @@ didDisconnectWithUser:(GIDGoogleUser *)user
         [self clearLoginBlocks];
         [self clearUserProfileBlocks];
         self.logoutSuccess();
-        [self reportAuthStatus];
     }
 }
 
@@ -138,9 +137,9 @@ dismissViewController:(UIViewController *)viewController {
     if (googleUser.authentication != nil) {
         self.loginSuccess(GOOGLE);
     } else {
-        self.loginFail(@"GooglePlus Authentication failed.");
         [self clearLoginBlocks];
         [self clearUserProfileBlocks];
+        self.loginFail(@"GooglePlus Authentication failed.");
     }
 }
 
