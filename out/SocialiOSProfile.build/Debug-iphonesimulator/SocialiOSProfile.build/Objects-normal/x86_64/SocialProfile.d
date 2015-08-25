@@ -2,6 +2,7 @@ dependencies: \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/SocialProfile.m \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/SocialProfile.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/UserProfileUtils.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/Typedefs.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/AuthController.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/ProviderLoader.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/domain/IProvider.h \

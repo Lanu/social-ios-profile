@@ -16,6 +16,7 @@
 
 #import "ProviderLoader.h"
 #import "UserProfileUtils.h"
+#import "Typedefs.h"
 
 @class UserProfile;
 
@@ -25,7 +26,9 @@
  actions in order to connect them to user profile data and rewards.
  */
 @interface AuthController : ProviderLoader
-
+{
+    GPTokenSuccessCallback mTokenSuccessCallback;
+}
 /**
  Constructor
  
@@ -75,7 +78,7 @@
  @param payload a String to receive when the function returns.
  @exception ProviderNotFoundException if the provider is not supported
  */
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload andCallback:(GPTokenSuccessCallback)callback;
 
 /**
  Fetches the user profile for the given provider from the device's storage.

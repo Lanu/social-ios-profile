@@ -22,6 +22,7 @@
 #import "IAuthProvider.h"
 #import "SocialUtils.h"
 #import "AccessTokenStorage.h"
+#import "UserProfileUtils.h"
 
 @implementation AuthController
 
@@ -107,8 +108,9 @@ static NSString* TAG = @"SOCIAL AuthController";
     return [authProvider isLoggedIn];
 }
 
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload andCallback:(GPTokenSuccessCallback)callback{
     
+    mTokenSuccessCallback = callback;
     id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];
     [ProfileEventHandling postGetAccessTokenStarted:provider withPayload:payload];
     
@@ -119,11 +121,15 @@ static NSString* TAG = @"SOCIAL AuthController";
             [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
             if (provider == GOOGLE) {
                 [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
+                mTokenSuccessCallback(GPTRUE,[accessToken UTF8String],[[UserProfileUtils providerEnumToString:provider] UTF8String],[payload UTF8String]);
             }
         } fail:^(NSString *message) {
             [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
+            mTokenSuccessCallback(GPFALSE,[message UTF8String],[[UserProfileUtils providerEnumToString:provider] UTF8String],[payload UTF8String]);
         } cancel:^{
             [ProfileEventHandling postGetAccessTokenCancelled:provider withPayload:payload];
+            NSString *cancelled=@"Get access token cancelled";
+            mTokenSuccessCallback(GPFALSE,[cancelled UTF8String],[[UserProfileUtils providerEnumToString:provider] UTF8String],[payload UTF8String]);
         }];
     //}];
 }

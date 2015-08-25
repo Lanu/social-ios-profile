@@ -15,6 +15,7 @@
  */
 
 #import "UserProfileUtils.h"
+#import "Typedefs.h"
 
 @class UserProfile;
 @class AuthController;
@@ -87,7 +88,7 @@
  @param requestNew True to try get a new token, false to try get a cached token
  @param payload a String to receive when the function returns.
  */
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload;
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload andCallback:(GPTokenSuccessCallback)callback;
 
 /**
  Fetches the user's profile for the given provider from the local device storage

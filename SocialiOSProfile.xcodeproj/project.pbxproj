@@ -32,6 +32,7 @@
 		1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB871B0C8E30000037D6 /* ProviderLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3FBB751B0C8E30000037D6 /* AuthController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A93B0771B0C94AD00AA53DD /* SocialProfile.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1A3FBB921B0C8E30000037D6 /* SocialProfile.h */; };
+		3F003D041B8756CA00C1F89B /* Typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F003D031B87562B00C1F89B /* Typedefs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FCFB5821B8366B200BC3BC2 /* AccessTokenStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFB5811B8366B200BC3BC2 /* AccessTokenStorage.m */; };
 		3FCFB5831B836C6C00BC3BC2 /* AccessTokenStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FCFB5801B8366A900BC3BC2 /* AccessTokenStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		1A93B0761B0C92F800AA53DD /* libSocialiOSProfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocialiOSProfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98BB951B0F5B09006E7C97 /* SocialiOSProfile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialiOSProfile-Info.plist"; sourceTree = "<group>"; };
 		3AFD6F1B1986E173001360D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3F003D031B87562B00C1F89B /* Typedefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typedefs.h; sourceTree = "<group>"; };
 		3FCFB5801B8366A900BC3BC2 /* AccessTokenStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessTokenStorage.h; sourceTree = "<group>"; };
 		3FCFB5811B8366B200BC3BC2 /* AccessTokenStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessTokenStorage.m; sourceTree = "<group>"; };
 		EF356EFD193C90560081DCE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +118,7 @@
 				1A3FBB931B0C8E30000037D6 /* SocialProfile.m */,
 				1A3FBB941B0C8E30000037D6 /* UserProfileUtils.h */,
 				1A3FBB951B0C8E30000037D6 /* UserProfileUtils.m */,
+				3F003D031B87562B00C1F89B /* Typedefs.h */,
 			);
 			path = SocialiOSProfile;
 			sourceTree = SOURCE_ROOT;
@@ -214,6 +217,7 @@
 				1A93B0651B0C92F800AA53DD /* UserProfileNotFoundException.h in Headers */,
 				1A93B0691B0C92F800AA53DD /* IProvider.h in Headers */,
 				1A93B06F1B0C92F800AA53DD /* ProviderLoader.h in Headers */,
+				3F003D041B8756CA00C1F89B /* Typedefs.h in Headers */,
 				1A93B0701B0C92F800AA53DD /* AuthController.h in Headers */,
 				1A93B0641B0C92F800AA53DD /* PJSONConsts.h in Headers */,
 				3FCFB5831B836C6C00BC3BC2 /* AccessTokenStorage.h in Headers */,

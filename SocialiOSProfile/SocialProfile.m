@@ -87,9 +87,9 @@ static NSString *TAG = @"SOCIAL SOCIALIOSPROFILE";
     }
 }
 
-- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload{
+- (void)getAccessTokenWithProvider:(Provider)provider andRequestNew:(BOOL)requestNew andPayload:(NSString *)payload andCallback:(GPTokenSuccessCallback)callback{
     @try {
-        [authController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload];
+        [authController getAccessTokenWithProvider:provider andRequestNew:requestNew andPayload:payload andCallback:callback];
     }
     @catch (NSException *exception) {
         LogError(TAG, ([NSString stringWithFormat:@"getAccessTokenWithProvider error: %@", exception.description]));

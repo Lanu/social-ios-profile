@@ -4,6 +4,7 @@ dependencies: \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/ProviderLoader.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/UserProfileUtils.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/domain/IProvider.h \
+  /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/Typedefs.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/domain/UserProfile.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/data/UserProfileStorage.h \
   /Users/banu/Documents/GitAIM/social-ios-profile/SocialiOSProfile/exceptions/UserProfileNotFoundException.h \

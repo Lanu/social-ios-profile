@@ -21,7 +21,7 @@
 #define EVENT_UP_PROFILE_INITIALIZED            @"up_profile_initialized"
 
 #define EVENT_UP_USER_PROFILE_UPDATED           @"up_user_profile_updated"
-#define EVENT_UP_ACCESS_TOKEN_UPDATED         @"up_access_token_updated"
+#define EVENT_UP_ACCESS_TOKEN_UPDATED           @"up_access_token_updated"
 
 #define EVENT_UP_LOGIN_STARTED                  @"up_login_started"
 #define EVENT_UP_LOGIN_FINISHED                 @"up_login_finished"
