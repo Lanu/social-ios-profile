@@ -24,7 +24,7 @@
 
 @implementation SocialGooglePlus
 
-@synthesize loginSuccess, loginFail, loginCancel, logoutSuccess, logoutFail, userProfileSuccess, userProfileFail, clientId;
+@synthesize loginSuccess, loginFail, loginCancel, logoutSuccess, logoutFail, userProfileSuccess, userProfileFail, clientId, serverClientId;
 
 static NSString *TAG = @"SOCIAL SocialGooglePlus";
 
@@ -47,6 +47,7 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 - (void)applyParams:(NSDictionary *)providerParams{
     if (providerParams){
         clientId = [providerParams objectForKey:@"clientId"];
+        serverClientId = [providerParams objectForKey:@"oauth2ClientId"];
     }
 }
 
@@ -68,12 +69,12 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 - (void)startGooglePlusAuth{
     LogDebug(TAG,@"startGooglePlusAuth");
     GIDSignIn *signIn = [GIDSignIn sharedInstance];
-    //NSArray* scopes = [NSArray arrayWithObjects:kGTLAuthScopePlusLogin,kGTLAuthScopePlusUserinfoProfile, nil];
-    
+    NSArray* scopes = [NSArray arrayWithObjects:@"profile",@"email",nil];
     signIn.shouldFetchBasicProfile = YES;
     signIn.allowsSignInWithBrowser = NO;
     signIn.clientID = self.clientId;
-    //signIn.scopes = scopes;
+    signIn.serverClientID = self.serverClientId;
+    signIn.scopes = scopes;
     
     signIn.delegate = self;
     signIn.uiDelegate = self;
@@ -205,8 +206,9 @@ dismissViewController:(UIViewController *)viewController {
 
     if ([self isLoggedIn]) {
         //NSString *accessToken = GIDSignIn.sharedInstance.currentUser.authentication.accessToken;
-        NSString *accessToken = [[GIDSignIn sharedInstance] currentUser].authentication.accessToken;
-        success(accessToken);
+        //IT IS NOT THE F* ACCESSTOKEN WE NEED, BUT THE SERVERAUTHCODE
+        NSString *serverAuthCode = [[GIDSignIn sharedInstance] currentUser].serverAuthCode != nil? [[GIDSignIn sharedInstance] currentUser].serverAuthCode:@"";
+        success(serverAuthCode);
     } else {
         fail(@"Get access token failed");
     }
