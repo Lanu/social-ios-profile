@@ -53,7 +53,7 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 
 - (void)login:(loginSuccess)success fail:(loginFail)fail cancel:(loginCancel)cancel{
     LogDebug(TAG, @"Login");
-    
+
     [self setLoginBlocks:success fail:fail cancel:cancel];
     
     NSString *authParamsCheckResult = [self checkAuthParams];
@@ -69,12 +69,17 @@ static NSString *TAG = @"SOCIAL SocialGooglePlus";
 - (void)startGooglePlusAuth{
     LogDebug(TAG,@"startGooglePlusAuth");
     GIDSignIn *signIn = [GIDSignIn sharedInstance];
-    NSArray* scopes = [NSArray arrayWithObjects:@"profile",@"email",nil];
-    signIn.shouldFetchBasicProfile = YES;
-    signIn.allowsSignInWithBrowser = NO;
     signIn.clientID = self.clientId;
     signIn.serverClientID = self.serverClientId;
-    signIn.scopes = scopes;
+    
+    if (signIn.hasAuthInKeychain) {
+        [signIn disconnect];
+        LogDebug(TAG,(signIn.hasAuthInKeychain ? @"hasAuthInKeychain disconnect Yes" : @"hasAuthInKeychain disconnect No"));
+    }
+    
+    signIn.shouldFetchBasicProfile = YES;
+    signIn.allowsSignInWithBrowser = NO;
+    signIn.scopes = [NSArray arrayWithObjects:@"profile",@"email",nil];
     
     signIn.delegate = self;
     signIn.uiDelegate = self;
@@ -102,11 +107,15 @@ didDisconnectWithUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
     LogDebug(TAG,@"signIn: didDisconnectWithUser: withError:");
     if (error) {
-         self.logoutFail([error localizedDescription]);
+        if (logoutFail) {
+            self.logoutFail([error localizedDescription]);
+        }
     } else {
-        [self clearLoginBlocks];
-        [self clearUserProfileBlocks];
-        self.logoutSuccess();
+        if (logoutSuccess) {
+            [self clearLoginBlocks];
+            [self clearUserProfileBlocks];
+            self.logoutSuccess();
+        }
     }
 }
 
@@ -138,9 +147,9 @@ dismissViewController:(UIViewController *)viewController {
     if (googleUser.authentication != nil) {
         self.loginSuccess(GOOGLE);
     } else {
+        self.loginFail(@"GooglePlus Authentication failed.");
         [self clearLoginBlocks];
         [self clearUserProfileBlocks];
-        self.loginFail(@"GooglePlus Authentication failed.");
     }
 }
 
@@ -231,23 +240,27 @@ dismissViewController:(UIViewController *)viewController {
 }
 
 -(void)setLoginBlocks:(loginSuccess)success fail:(loginFail)fail cancel:(loginCancel)cancel{
+    LogDebug(TAG, @"setLoginBlocks");
     self.loginSuccess = success;
     self.loginFail = fail;
     self.loginCancel = cancel;
 }
 
 - (void)clearLoginBlocks {
+    LogDebug(TAG, @"clearLoginBlocks");
     self.loginSuccess = nil;
     self.loginFail = nil;
     self.loginCancel = nil;
 }
 
 -(void)setUserProfileBlocks:(userProfileSuccess)success fail:(userProfileFail)fail{
+    LogDebug(TAG, @"setUserProfileBlocks");
     self.userProfileSuccess = success;
     self.userProfileFail = fail;
 }
 
 - (void)clearUserProfileBlocks {
+    LogDebug(TAG, @"clearUserProfileBlocks");
     self.userProfileSuccess = nil;
     self.userProfileFail = nil;}
 

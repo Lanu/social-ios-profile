@@ -35,5 +35,6 @@
 @property (strong, nonatomic) userProfileSuccess userProfileSuccess;
 @property (strong, nonatomic) userProfileFail userProfileFail;
 @property (strong, nonatomic, readonly) NSString *clientId;
+@property (strong, nonatomic, readonly) NSString *serverClientId;
 
 @end
