@@ -215,7 +215,7 @@ dismissViewController:(UIViewController *)viewController {
 
     if ([self isLoggedIn]) {
         //NSString *accessToken = GIDSignIn.sharedInstance.currentUser.authentication.accessToken;
-        //IT IS NOT THE F* ACCESSTOKEN WE NEED, BUT THE SERVERAUTHCODE
+        //IT IS NOT THE ACCESSTOKEN WE NEED, BUT THE SERVERAUTHCODE
         NSString *serverAuthCode = [[GIDSignIn sharedInstance] currentUser].serverAuthCode != nil? [[GIDSignIn sharedInstance] currentUser].serverAuthCode:@"";
         success(serverAuthCode);
     } else {
