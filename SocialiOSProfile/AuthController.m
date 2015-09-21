@@ -120,8 +120,12 @@ static NSString* TAG = @"SOCIAL AuthController";
         [authProvider getAccessToken:^(NSString *accessToken) {
             [ProfileEventHandling postGetAccessTokenFinished:provider withAccessToken:accessToken withPayload:payload];
             if (provider == GOOGLE) {
-                [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
-                mTokenSuccessCallback(GPTRUE,[accessToken UTF8String],[[UserProfileUtils providerEnumToString:provider] UTF8String],[payload UTF8String]);
+                double delayInSeconds = 1.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [AccessTokenStorage setAccessToken:provider andAccessToken:accessToken];
+                    mTokenSuccessCallback(GPTRUE,[accessToken UTF8String],[[UserProfileUtils providerEnumToString:provider] UTF8String],[payload UTF8String]);
+                });
             }
         } fail:^(NSString *message) {
             [ProfileEventHandling postGetAccessTokenFailed:provider withMessage:message withPayload:payload];
